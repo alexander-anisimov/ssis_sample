@@ -5,14 +5,14 @@
   DTS:CreationName="SSIS.Package.3"
   DTS:CreatorComputerName="ALLNIGHTLONG"
   DTS:CreatorName="Allnightlong\asd24"
-  DTS:DTSID="{B2B9B353-6AA0-44AD-914A-B986D6B9A7F5}"
+  DTS:DTSID="{61B4EC12-33EF-434F-88A3-CFE6637AD997}"
   DTS:ExecutableType="SSIS.Package.3"
   DTS:LastModifiedProductVersion="11.0.3369.0"
   DTS:LocaleID="1049"
-  DTS:ObjectName="Sample1"
+  DTS:ObjectName="Sample1 - run apps"
   DTS:PackageType="5"
-  DTS:VersionBuild="18"
-  DTS:VersionGUID="{747ACF6F-F310-425C-B8A1-C36A4E6A5B39}">
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{5EFD46A6-EBD9-42D9-8B00-0A167646C285}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:Variables />

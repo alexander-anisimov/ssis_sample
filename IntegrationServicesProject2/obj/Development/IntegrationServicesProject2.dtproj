@@ -26,27 +26,28 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">ALLNIGHTLONG</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA/yZZOZCDFEW83x5K9Piq4QAAAAACAAAAAAAQZgAAAAEAACAAAAC0CvCB380c1PrsPWG9f57sw1Jd5Ow5OoYPHmXsUDQxsgAAAAAOgAAAAAIAACAAAAAgG74O5ZcxQ4ClLCMRWDcuBlFPrG6Qe5XnolYFdDqihJAAAADHXz2kDWZZj5FUvfHZuuLMnEeIYPzqZ67hyAQoRvq4NUt0b5Mg8Mif8PeBXl6PdAP6s+Fb6GS2IqKajQW/9Fh8YCudK7g/oDA686oOutN5eSGYyaAzv6I+DYgB1oOUZ0RGdqTO66rOAum0fyEcCh1iPlbhKG1vn5aiBsfdHN16KU0Uy5VV3JiwlhFSNRIFbKBAAAAAcvF5crqCoyM5QV0lH1tjD6XjJ2u4X/APhmk4dTO6YlApWW25omiUrWTkxCHJO8Tf/qip02qp2rWjZpHni30ZXg==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA/yZZOZCDFEW83x5K9Piq4QAAAAACAAAAAAAQZgAAAAEAACAAAADFxrbkvRPc8FLajCwkDBJibM/KUfvyZpe41DfbIWzvCgAAAAAOgAAAAAIAACAAAADE1Dv831VU8GGdYoN7XHMIWGJWqkj/YevRG4dkZ8Nvg5AAAABsbhIcyj3VOMmpus0h0XBLAIxFrxj36Tbqq7w86rBzR2jM4mPqFiVB33p3qRSd+Yl4V6igasPdVBTesAQydY9dv0IkjUg3uASvK6cCUe/LsXXebrHyvmwNAOtUPKUSRp8H7NQmLHEyhkdHcfqVvf3aaIMk8x6SvW3REhrEmEmbXiv7zKheJIQhnm/tlQuCzztAAAAApOYGiCGC3h1fnn217vkngC6ZDwuoIUADdy/Xmv890iuWSy9s8+JYCtcJFDjpWXZRoseSbGRsNPzS5Mm2eokwbA==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
-          <SSIS:Package SSIS:Name="Sample3.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="Sample4.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="Sample4 - Transactions.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="Sample3 - SQL Task.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="Sample5 - Save points.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers />
         <SSIS:DeploymentInfo>
           <SSIS:ProjectConnectionParameters />
           <SSIS:PackageInfo>
-            <SSIS:PackageMetaData SSIS:Name="Sample3.dtsx">
+            <SSIS:PackageMetaData SSIS:Name="Sample4 - Transactions.dtsx">
               <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{2D943CD1-E2BD-4F46-8DC5-1D03AD4F5B46}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">Sample3</SSIS:Property>
+                <SSIS:Property SSIS:Name="ID">{15FEC04B-494E-4F53-B20D-B389695F0B7C}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">Sample4 - Transactions</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">29</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">12</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{1D4A2A61-BFB1-4E8D-80AC-2785AC8459EF}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{CF219B60-CE3E-4B9C-877D-80D00080410D}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">6</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -143,16 +144,16 @@
                 </SSIS:Parameter>
               </SSIS:Parameters>
             </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="Sample4.dtsx">
+            <SSIS:PackageMetaData SSIS:Name="Sample3 - SQL Task.dtsx">
               <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{08E7FFBD-5AB7-41DA-B975-88589D957FFD}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">Sample4</SSIS:Property>
+                <SSIS:Property SSIS:Name="ID">{7C570FBD-ABD4-4456-94CC-B9A952943219}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">Sample3 - SQL Task</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">11</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">30</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{59FF7E01-0D4C-4884-84F5-485921CD09ED}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{4F69145D-9D54-4BB0-9CC9-6316EC3BFB87}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">6</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -248,6 +249,23 @@
                   </SSIS:Properties>
                 </SSIS:Parameter>
               </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="Sample5 - Save points.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{44A37290-7F82-452B-886B-61D2CACDC6E2}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">Sample5 - Save points</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{320F28C0-F20C-42E5-BCF2-51A3100CB900}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">6</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
             </SSIS:PackageMetaData>
           </SSIS:PackageInfo>
         </SSIS:DeploymentInfo>

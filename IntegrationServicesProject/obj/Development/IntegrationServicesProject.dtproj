@@ -26,27 +26,27 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">ALLNIGHTLONG</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA/yZZOZCDFEW83x5K9Piq4QAAAAACAAAAAAAQZgAAAAEAACAAAAAUy+kVhsj7R/4MeHvuIsb0cpoweGiyod93TqGOD90nCQAAAAAOgAAAAAIAACAAAACPUW6+kv1jKKtYZZ6eUi1R7tq3G9q2/jRuwvmvO48oZ5AAAAAyX7ehLfRqk/hc0GdIbZfID91hzmlnojI8ys/4z1ofwFoasYWJK+mgMWmYoJQIgNu0bCyothh1Coo9kMJXNd6BX9EB96QK6jKgy5WBvJIrtnavYDR5zcaZIZOcVvO3rRIrXwGeYClTX9//TE1BRd/zMHACmAyLaxtLN12SAa5xFfbFXAU7W99XLGBEr0tMkNxAAAAA70fzM9GXlYfpIhbx39HJf7zTQpaxeAYDI+Yg61pZWuHSBwc1Qfr8+CryMHZsBSSCJegjYQwMFgwLbSVnhrxIww==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA/yZZOZCDFEW83x5K9Piq4QAAAAACAAAAAAAQZgAAAAEAACAAAAA7uYs1PqlRwn0qzGSAyKxZHKOhR/JdxHz5irLgLnJMDAAAAAAOgAAAAAIAACAAAAD8NErUAGnzeHiJ1ns6n409blpKFGKJYbENo7NftchfmJAAAAD4dSjUodikWgqs+KjRoOUCn0kZI5Q02JATiCVpnwNaWxu+uR4VIF6y8yxsZRWMgdaA61D6x6J/7oZoC++fFal1LXkVaNUqMGfxE4q58bYtWdHF+F/MzUC1dTTQg3ODsO2JOsivFmMWsT+DcJ/7a5ygLVAaaMc731rwvccYeKWQZ8JhrdtgEHUVZ8Ia3toYioFAAAAA/pGdmvopCLQFGDryEIABaB3ZjJD7wojLXdeTDy4Na00c5Vr4nXZJC+sy9YQ/BhNDW6Z71vuUM8T/Sv2yvk7I7g==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
-          <SSIS:Package SSIS:Name="Sample1.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="Sample2.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="Sample1 - run apps.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="Sample2 - add some logic.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers />
         <SSIS:DeploymentInfo>
           <SSIS:ProjectConnectionParameters />
           <SSIS:PackageInfo>
-            <SSIS:PackageMetaData SSIS:Name="Sample1.dtsx">
+            <SSIS:PackageMetaData SSIS:Name="Sample1 - run apps.dtsx">
               <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{B2B9B353-6AA0-44AD-914A-B986D6B9A7F5}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">Sample1</SSIS:Property>
+                <SSIS:Property SSIS:Name="ID">{61B4EC12-33EF-434F-88A3-CFE6637AD997}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">Sample1 - run apps</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">18</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">19</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{747ACF6F-F310-425C-B8A1-C36A4E6A5B39}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{5EFD46A6-EBD9-42D9-8B00-0A167646C285}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">6</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -54,16 +54,16 @@
               </SSIS:Properties>
               <SSIS:Parameters />
             </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="Sample2.dtsx">
+            <SSIS:PackageMetaData SSIS:Name="Sample2 - add some logic.dtsx">
               <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{7A84CC8E-41F0-422E-9D3B-50093F040E14}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">Sample2</SSIS:Property>
+                <SSIS:Property SSIS:Name="ID">{71F01173-31DD-4796-88FF-0CD4A80394DD}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">Sample2 - add some logic</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">16</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">17</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{E74F7457-9E2B-4D75-AA55-9B06A7D945F6}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{8757B197-7C22-486C-AC0F-E2EC64F992D8}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">6</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>

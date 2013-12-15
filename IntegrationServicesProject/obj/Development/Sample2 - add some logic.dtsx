@@ -1,18 +1,18 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="12/14/2013 5:41:43 PM"
   DTS:CreationName="SSIS.Package.3"
   DTS:CreatorComputerName="ALLNIGHTLONG"
   DTS:CreatorName="Allnightlong\asd24"
-  DTS:DTSID="{7A84CC8E-41F0-422E-9D3B-50093F040E14}"
+  DTS:DTSID="{71F01173-31DD-4796-88FF-0CD4A80394DD}"
   DTS:ExecutableType="SSIS.Package.3"
   DTS:LastModifiedProductVersion="11.0.3369.0"
   DTS:LocaleID="1049"
-  DTS:ObjectName="Sample2"
+  DTS:ObjectName="Sample2 - add some logic"
   DTS:PackageType="5"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{E74F7457-9E2B-4D75-AA55-9B06A7D945F6}">
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{8757B197-7C22-486C-AC0F-E2EC64F992D8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:Variables />
@@ -42,7 +42,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="RunNotepad"
       DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <ExecuteProcessData
@@ -58,7 +58,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="RunPaint"
       DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <ExecuteProcessData

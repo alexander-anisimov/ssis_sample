@@ -5,14 +5,14 @@
   DTS:CreationName="SSIS.Package.3"
   DTS:CreatorComputerName="ALLNIGHTLONG"
   DTS:CreatorName="Allnightlong\asd24"
-  DTS:DTSID="{08E7FFBD-5AB7-41DA-B975-88589D957FFD}"
+  DTS:DTSID="{15FEC04B-494E-4F53-B20D-B389695F0B7C}"
   DTS:ExecutableType="SSIS.Package.3"
   DTS:LastModifiedProductVersion="11.0.3369.0"
   DTS:LocaleID="1049"
-  DTS:ObjectName="Sample4"
+  DTS:ObjectName="Sample4 - Transactions"
   DTS:PackageType="5"
-  DTS:VersionBuild="11"
-  DTS:VersionGUID="{59FF7E01-0D4C-4884-84F5-485921CD09ED}">
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{CF219B60-CE3E-4B9C-877D-80D00080410D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>

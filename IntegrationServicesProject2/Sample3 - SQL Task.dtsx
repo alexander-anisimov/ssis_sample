@@ -5,14 +5,14 @@
   DTS:CreationName="SSIS.Package.3"
   DTS:CreatorComputerName="ALLNIGHTLONG"
   DTS:CreatorName="Allnightlong\asd24"
-  DTS:DTSID="{2D943CD1-E2BD-4F46-8DC5-1D03AD4F5B46}"
+  DTS:DTSID="{7C570FBD-ABD4-4456-94CC-B9A952943219}"
   DTS:ExecutableType="SSIS.Package.3"
   DTS:LastModifiedProductVersion="11.0.3369.0"
   DTS:LocaleID="1049"
-  DTS:ObjectName="Sample3"
+  DTS:ObjectName="Sample3 - SQL Task"
   DTS:PackageType="5"
-  DTS:VersionBuild="29"
-  DTS:VersionGUID="{1D4A2A61-BFB1-4E8D-80AC-2785AC8459EF}">
+  DTS:VersionBuild="30"
+  DTS:VersionGUID="{4F69145D-9D54-4BB0-9CC9-6316EC3BFB87}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
@@ -300,6 +300,21 @@
           Size="138,42"
           Id="Package\Create table"
           TopLeft="39.4741305861906,46.725797214693" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="205,103"
+          Size="205,146"
+          Id="Package\Foreach Loop Container"
+          TopLeft="548.597402947804,237.989041413163" />
+        <NodeLayout
+          Size="148,42"
+          Id="Package\Get databases"
+          TopLeft="374.167006827004,294.777775105223" />
+        <NodeLayout
+          Size="119,42"
+          Id="Package\GetData"
+          TopLeft="378.644857915763,161.35802541567" />
         <NodeLayout
           Size="139,42"
           Id="Package\Repeat5times\Insert 1 row"
@@ -311,6 +326,10 @@
           Size="205,145"
           Id="Package\Repeat5times"
           TopLeft="131.604814727431,125.290344528231" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\Script Task"
+          TopLeft="205,485" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="108.474130586191,88.725797214693">
@@ -347,10 +366,6 @@
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="119,42"
-          Id="Package\GetData"
-          TopLeft="378.644857915763,161.35802541567" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="336.604814727432,197.790344528231">
@@ -385,17 +400,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="205,102"
-          Size="205,146"
-          Id="Package\Foreach Loop Container"
-          TopLeft="548.597402947804,237.989041413163" />
-        <NodeLayout
-          Size="148,42"
-          Id="Package\Get databases"
-          TopLeft="374.167006827004,294.777775105223" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
           TopLeft="438.144857915763,203.35802541567">
@@ -452,10 +456,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="133,42"
-          Id="Package\Script Task"
-          TopLeft="205,485" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
