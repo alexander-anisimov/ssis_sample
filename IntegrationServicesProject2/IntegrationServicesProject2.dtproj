@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">ALLNIGHTLONG</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA/yZZOZCDFEW83x5K9Piq4QAAAAACAAAAAAAQZgAAAAEAACAAAABEDeLUq8oM0uNj4koKmxGARmOMYUyr1Y89CcF5P0ND1gAAAAAOgAAAAAIAACAAAABRefwMWSiC5KqK3hNABtiBh8H4EfUOnINnOfFoCgYb4pAAAAAlKyp8yLg2jKUOHprO+lz7vurx5DwtRN1LYGw/YLaDZH4Pwb7b4cjMJvNP5awaVSDY+hrAqv78quDaslkzw5C+LKaSN5eeAn3wOhqJBeg18H1ePinTvzvT6RkH8uEEpxr0E9BlA15LCLjjXui38zQV4iXuOeBNFJhHgJJ2Do9XlTn+mwZiuX01Ny0NcwiOP1ZAAAAApgy4dv9WXzYoMZ5eSZrh6M5DKTJwbQugMgeHmeidBk7nhAu807M+b3+kZae1m3h5nsKu4L+e7Mv7LjHNFuUPXw==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA/yZZOZCDFEW83x5K9Piq4QAAAAACAAAAAAAQZgAAAAEAACAAAAChrzaSV8EHnWhBu8gEyMolaS6aQ4cLBfKSYcRtwthcxgAAAAAOgAAAAAIAACAAAACN+kZLx7NgxpgR/OmHyiuh+WHPYe7UfmZgMBXxLhB6bJAAAAClDDQjj90cU0dFF0QcuTXtjN9XaLlM6wW0sKnAg6ONL21kzVm4nahKf9W00463D/oeFTS6ZlNiLzzqWTPBmA7UcxuEe56LLASbCwUkM272HZefHgmRanvQKd9YGOeEEw+BF+uTviXwG+rcDu7fQoiM5Y6+eWpAdWHEpLXUgyddiW2GG7mzhu4oFBK1btWEoDZAAAAAaQJ9o+qEMhhx27Q6lGweRPogvKRJBjwDK/oa3/ZS12bciGVEpyc3f69P9LdxjbB+NT3JpfRjqPubvYaAabE/1w==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -34,6 +34,7 @@
           <SSIS:Package SSIS:Name="Sample3 - SQL Task.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="Sample5 - Save points.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="Sample6 - Errors handling.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="Sample7 - Expressions.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers />
         <SSIS:DeploymentInfo>
@@ -274,10 +275,27 @@
                 <SSIS:Property SSIS:Name="Name">Sample6 - Errors handling</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">3</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">7</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{2164AE85-E1D0-4FB3-8D63-46E87BCA69FA}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{287368B4-8ABC-46B7-BC7A-65C3A6B47270}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">6</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="Sample7 - Expressions.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{3B8C651F-2021-4DB0-85FC-348633AE0274}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">Sample7 - Expressions</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">5</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{6E9784E5-0F56-4209-92A4-BF1FCD32DB83}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">6</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>

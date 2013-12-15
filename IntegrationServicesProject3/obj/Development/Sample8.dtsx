@@ -1,0 +1,542 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/15/2013 3:15:43 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="ALLNIGHTLONG"
+  DTS:CreatorName="Allnightlong\asd24"
+  DTS:DTSID="{650CC76B-C2CA-448F-B023-11408C61648D}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.3369.0"
+  DTS:LocaleID="1049"
+  DTS:ObjectName="Sample8"
+  DTS:PackageType="5"
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{A65BAD7D-E904-4248-9808-7DEC48C04102}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{4249B416-E1E9-4ED7-AA48-A1FEF6A9DDD0}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\asd24\GitReps\ssis_sample\IntegrationServicesProject3\export.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.StudyDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{FAC00759-5AF5-45CF-8EF9-1C9A2BC11804}"
+      DTS:ObjectName="LocalHost.StudyDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=StudyDB;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Export Data"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{11E3ABD8-CB6B-4D19-9ED1-B2EBBB272DD2}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Export Data"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Export Data\Excel Destination"
+              componentClassID="{1F5D5712-2FBA-4CB9-A95A-86C1F336E1DA}"
+              contactInfo="Excel Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Excel Destination"
+              name="Excel Destination"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Sheet1$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Export Data\Excel Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Export Data\Excel Destination.Inputs[Excel Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Excel Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Export Data\Excel Destination.Inputs[Excel Destination Input].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\Export Data\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[F1]"
+                      lineageId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Export Data\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[F1]"
+                      dataType="wstr"
+                      length="255"
+                      name="F1" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Export Data\Excel Destination.Outputs[Excel Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Excel Destination Error Output"
+                  synchronousInputId="Package\Export Data\Excel Destination.Inputs[Excel Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Export Data\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Export Data\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Export Data\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Export Data\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Export Data\Multicast"
+              componentClassID="{EC139FBC-694E-490B-8EA7-35690FB0F445}"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Multicast">
+              <inputs>
+                <input
+                  refId="Package\Export Data\Multicast.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Export Data\Multicast.Outputs[Multicast Output 1]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\Export Data\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Export Data\Multicast.Outputs[Multicast Output 2]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 2"
+                  synchronousInputId="Package\Export Data\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Export Data\OLE DB Source"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Books]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1251</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Export Data\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.StudyDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.StudyDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      lineageId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[AuthorID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AuthorID]"
+                      lineageId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[AuthorID]"
+                      name="AuthorID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[GenreID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GenreID]"
+                      lineageId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[GenreID]"
+                      name="GenreID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[BookName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BookName]"
+                      length="50"
+                      lineageId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[BookName]"
+                      name="BookName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[LanguageID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LanguageID]"
+                      lineageId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[LanguageID]"
+                      name="LanguageID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[PublishYear]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PublishYear]"
+                      lineageId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[PublishYear]"
+                      name="PublishYear"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AuthorID]"
+                      dataType="i4"
+                      name="AuthorID" />
+                    <externalMetadataColumn
+                      refId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GenreID]"
+                      dataType="i4"
+                      name="GenreID" />
+                    <externalMetadataColumn
+                      refId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BookName]"
+                      dataType="wstr"
+                      length="50"
+                      name="BookName" />
+                    <externalMetadataColumn
+                      refId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LanguageID]"
+                      dataType="i4"
+                      name="LanguageID" />
+                    <externalMetadataColumn
+                      refId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PublishYear]"
+                      dataType="dbDate"
+                      name="PublishYear" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      dataType="i4"
+                      lineageId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AuthorID]"
+                      dataType="i4"
+                      lineageId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AuthorID]"
+                      name="AuthorID" />
+                    <outputColumn
+                      refId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GenreID]"
+                      dataType="i4"
+                      lineageId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GenreID]"
+                      name="GenreID" />
+                    <outputColumn
+                      refId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BookName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BookName]"
+                      name="BookName" />
+                    <outputColumn
+                      refId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LanguageID]"
+                      dataType="i4"
+                      lineageId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LanguageID]"
+                      name="LanguageID" />
+                    <outputColumn
+                      refId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PublishYear]"
+                      dataType="dbDate"
+                      lineageId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PublishYear]"
+                      name="PublishYear" />
+                    <outputColumn
+                      refId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Export Data.Paths[Multicast Output 1]"
+              endId="Package\Export Data\Excel Destination.Inputs[Excel Destination Input]"
+              name="Multicast Output 1"
+              startId="Package\Export Data\Multicast.Outputs[Multicast Output 1]" />
+            <path
+              refId="Package\Export Data.Paths[OLE DB Source Output]"
+              endId="Package\Export Data\Multicast.Inputs[Multicast Input 1]"
+              name="OLE DB Source Output"
+              startId="Package\Export Data\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="137,42"
+          Id="Package\Export Data"
+          TopLeft="278,118" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Export Data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Export Data\OLE DB Source"
+          TopLeft="176,83" />
+        <NodeLayout
+          Size="122,42"
+          Id="Package\Export Data\Multicast"
+          TopLeft="256.181478963132,192.180361316336" />
+        <EdgeLayout
+          Id="Package\Export Data.Paths[OLE DB Source Output]"
+          TopLeft="252,125">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="65.1814789631322,67.1803613163358"
+              Start="0,0"
+              End="65.1814789631322,59.6803613163358">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5901806581679" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.5901806581679"
+                    Point2="0,33.5901806581679"
+                    Point3="4,33.5901806581679" />
+                  <mssgle:LineSegment
+                    End="61.1814789631322,33.5901806581679" />
+                  <mssgle:CubicBezierSegment
+                    Point1="61.1814789631322,33.5901806581679"
+                    Point2="65.1814789631322,33.5901806581679"
+                    Point3="65.1814789631322,37.5901806581679" />
+                  <mssgle:LineSegment
+                    End="65.1814789631322,59.6803613163358" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Export Data\Excel Destination"
+          TopLeft="195,290" />
+        <EdgeLayout
+          Id="Package\Export Data.Paths[Multicast Output 1]"
+          TopLeft="317.181478963132,234.180361316336">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-41.6814789631322,55.8196386836642"
+              Start="0,0"
+              End="-41.6814789631322,48.3196386836642">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.9098193418321" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.9098193418321"
+                    Point2="0,27.9098193418321"
+                    Point3="-4,27.9098193418321" />
+                  <mssgle:LineSegment
+                    End="-37.6814789631322,27.9098193418321" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-37.6814789631322,27.9098193418321"
+                    Point2="-41.6814789631322,27.9098193418321"
+                    Point3="-41.6814789631322,31.9098193418321" />
+                  <mssgle:LineSegment
+                    End="-41.6814789631322,48.3196386836642" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Export Data\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Export Data\Excel Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

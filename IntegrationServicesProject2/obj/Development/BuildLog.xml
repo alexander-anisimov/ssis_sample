@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>IntegrationServicesProject2</Name>
-    <LastWriteTime>2013-12-15T10:56:40.0506372Z</LastWriteTime>
+    <LastWriteTime>2013-12-15T12:16:03.8101087Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -24,6 +24,11 @@
     <ProjectBuildItemInfo>
       <Name>Sample6 - Errors handling.dtsx</Name>
       <LastWriteTime>2013-12-15T11:34:24.5891614Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Sample7 - Expressions.dtsx</Name>
+      <LastWriteTime>2013-12-15T11:47:22.1156334Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
