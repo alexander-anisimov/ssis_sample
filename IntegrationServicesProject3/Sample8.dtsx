@@ -11,8 +11,8 @@
   DTS:LocaleID="1049"
   DTS:ObjectName="Sample8"
   DTS:PackageType="5"
-  DTS:VersionBuild="25"
-  DTS:VersionGUID="{56D0AA08-F64B-4D64-807B-5EAE3764D6DE}">
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{5A61B06B-9E86-4DD2-9FE0-83C1291D3321}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,7 +23,7 @@
       DTS:ObjectName="Excel Connection Manager">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\asd24\GitReps\ssis_sample\IntegrationServicesProject3\export.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\asd24\GitReps\ssis_sample\IntegrationServicesProject3\export.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -476,6 +476,7 @@
       DTS:refId="Package\Import Data"
       DTS:CreationName="SSIS.Pipeline.3"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{1243D2D2-320F-41E5-A714-C652E6BAB5EB}"
       DTS:ExecutableType="SSIS.Pipeline.3"
       DTS:LocaleID="-1"
@@ -803,6 +804,23 @@
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\run bcp"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteProcess.ExecuteProcess, Microsoft.SqlServer.ExecProcTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="bcp with format file sample"
+      DTS:DTSID="{74787628-D296-4965-93A5-72671CB2F99E}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteProcess.ExecuteProcess, Microsoft.SqlServer.ExecProcTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="run bcp"
+      DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecuteProcessData
+          Executable="C:\Program Files\Microsoft SQL Server\110\Tools\Binn\bcp.exe"
+          Arguments="StudyDB.dbo.employee out &quot;C:\Users\employee.bcp&quot; -N -T -S" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -823,7 +841,11 @@
         <NodeLayout
           Size="138,42"
           Id="Package\Import Data"
-          TopLeft="335,262" />
+          TopLeft="484.390376840675,114.98753379535" />
+        <NodeLayout
+          Size="117,42"
+          Id="Package\run bcp"
+          TopLeft="451,374" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -836,6 +858,10 @@
           Size="152,42"
           Id="Package\Export Data\OLE DB Source"
           TopLeft="176,83" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Export Data\Conditional Split"
+          TopLeft="454,287" />
         <NodeLayout
           Size="122,42"
           Id="Package\Export Data\Multicast"
@@ -874,10 +900,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="157,42"
-          Id="Package\Export Data\Conditional Split"
-          TopLeft="454,287" />
         <EdgeLayout
           Id="Package\Export Data.Paths[Multicast Output 2]"
           TopLeft="336.181478963132,234.180361316336">
@@ -934,13 +956,21 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="141,42"
-          Id="Package\Import Data\Excel Source"
-          TopLeft="174.691852646342,50.4129011640856" />
+          Size="174,42"
+          Id="Package\Import Data\Flat File Destination"
+          TopLeft="495,324" />
         <NodeLayout
           Size="173,42"
           Id="Package\Import Data\OLE DB Destination"
           TopLeft="239,348" />
+        <NodeLayout
+          Size="105,42"
+          Id="Package\Import Data\Audit"
+          TopLeft="460.593568518105,209.65963506701" />
+        <NodeLayout
+          Size="141,42"
+          Id="Package\Import Data\Excel Source"
+          TopLeft="174.691852646342,50.4129011640856" />
         <EdgeLayout
           Id="Package\Import Data.Paths[Excel Source Output]"
           TopLeft="245.191852646342,92.4129011640856">
@@ -977,14 +1007,6 @@
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="105,42"
-          Id="Package\Import Data\Audit"
-          TopLeft="460.593568518105,209.65963506701" />
-        <NodeLayout
-          Size="174,42"
-          Id="Package\Import Data\Flat File Destination"
-          TopLeft="495,324" />
         <EdgeLayout
           Id="Package\Import Data.Paths[Audit Output 1]"
           TopLeft="513.093568518105,251.65963506701">
@@ -1025,7 +1047,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Import Data\Excel Source">
+    design-time-name="Package\Import Data\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1038,7 +1060,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Import Data\OLE DB Destination">
+    design-time-name="Package\Import Data\Excel Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
