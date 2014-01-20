@@ -2,13 +2,18 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>IntegrationServicesProject3</Name>
-    <LastWriteTime>2014-01-06T11:30:45.7436034Z</LastWriteTime>
+    <LastWriteTime>2014-01-20T18:23:07.1410331Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
-      <Name>Sample8.dtsx</Name>
-      <LastWriteTime>2014-01-06T11:30:43.0494493Z</LastWriteTime>
+      <Name>Sample8 - Data Flow.dtsx</Name>
+      <LastWriteTime>2014-01-20T18:18:59.6938799Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Sample9.dtsx</Name>
+      <LastWriteTime>2014-01-20T18:23:07.1250322Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
