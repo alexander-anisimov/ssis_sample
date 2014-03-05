@@ -6,3 +6,4 @@ It's only a study project..
 - Foreach Loop Container
 - File System Task
 - Script Task (C# support)
+- Database Task
