@@ -9,3 +9,4 @@ It's only a study project..
 - Data Profiling Task
 - DatabaseBackup Task
 - Creating Deployment Wizard and Deploy packages to SSISDB
+- FTP task
