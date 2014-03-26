@@ -7,4 +7,5 @@ It's only a study project..
 - File System Task
 - Script Task (C# support)
 - Data Profiling Task
-- Database Task
+- DatabaseBackup Task
+- Creating Deployment Wizard and Deploy packages to SSISDB

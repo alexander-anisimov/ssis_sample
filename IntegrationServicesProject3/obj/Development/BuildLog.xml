@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>IntegrationServicesProject3</Name>
-    <LastWriteTime>2014-03-05T09:48:21.4008073Z</LastWriteTime>
+    <LastWriteTime>2014-03-26T10:46:22.1069599Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -13,7 +13,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Sample9 - BackupDatabase Task.dtsx</Name>
-      <LastWriteTime>2014-03-05T09:48:08.4780681Z</LastWriteTime>
+      <LastWriteTime>2014-03-05T10:11:52.7825337Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
