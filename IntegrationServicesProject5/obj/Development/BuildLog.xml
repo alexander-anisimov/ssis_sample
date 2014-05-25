@@ -2,13 +2,18 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>IntegrationServicesProject5</Name>
-    <LastWriteTime>2014-03-26T12:06:22.0134989Z</LastWriteTime>
+    <LastWriteTime>2014-05-25T15:14:35.2552049Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>Sample11 - BI.dtsx</Name>
-      <LastWriteTime>2014-03-26T12:06:17.3042295Z</LastWriteTime>
+      <LastWriteTime>2014-03-26T14:21:41.9949352Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Samle12 - Expressions on ADO Sources.dtsx</Name>
+      <LastWriteTime>2014-05-25T15:14:35.2192028Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

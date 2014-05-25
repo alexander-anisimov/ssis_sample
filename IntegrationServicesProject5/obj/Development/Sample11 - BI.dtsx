@@ -11,8 +11,8 @@
   DTS:LocaleID="1049"
   DTS:ObjectName="Sample11 - BI"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{954FF188-EA7A-45DD-ADC8-146DB916F5A4}">
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{2309780C-E0A9-4FB5-ACE5-79A2784BEA98}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
@@ -40,7 +40,7 @@
             <DTS:Property
               DTS:Name="ServerPassword"
               Sensitive="1"
-              Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAq36uu58/7kGnHMDBynLaFAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACzeeORkLq3rolYmFuRE3kj6u2Up9MoGAinISBFAtiwDgAAAAAOgAAAAAIAACAAAACo6jbTlDkGBOc4q06V2NOQSVf43NFArckZ3HzrMi1SqyAAAADOS/GbfpYCtqz7i+Mt3S5cPhbiE4P0sfuSHQwz88JEeUAAAAC4cqJKquEF5smtjoUa3AZjsHK/MwspBk7iegl09Lbp21NhQW5a4gPvpNu/T4Qjmnq8MzRjXpyxvEdWPsjSocdp</DTS:Property>
+              Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAKRjz+pyfhUGYGYWPz/LHZwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADguhqk3/r3QdGKH3h80dgfCfMIooOXhWF7tTarrGND9wAAAAAOgAAAAAIAACAAAACJIgrXZXry/vNJOK7ZFi4K+NVVXL11WHfFjMyTTZ6RLyAAAACn8PxtU8PwnOA021R8NfE+qzdFZcR2fkKAue0gEC/2GUAAAADYkniR3+NRdZRSV4f4AOOpBCZIX3FllGlIpE4ct8UWX86DDtJAIG7keefTMruCjQRZYhlG78X58GAhxwAprbzH</DTS:Property>
           </DTS:FtpConnection>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
@@ -49,13 +49,13 @@
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Connection to demo FTP"
+      DTS:refId="Package\Upload File to demo FTP"
       DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.FtpTask.FtpTask, Microsoft.SqlServer.FtpTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:Description="FTP Task"
       DTS:DTSID="{D98A8424-E443-4077-BA2F-1B87CEB0E528}"
       DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.FtpTask.FtpTask, Microsoft.SqlServer.FtpTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Connection to demo FTP"
+      DTS:ObjectName="Upload File to demo FTP"
       DTS:TaskContact="FTP Task; Microsoft Corporation; SQL Server 2012; (c) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
@@ -81,9 +81,9 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="197,42"
-          Id="Package\Connection to demo FTP"
-          TopLeft="319,192" />
+          Size="196,42"
+          Id="Package\Upload File to demo FTP"
+          TopLeft="243.850516585691,155.351510276124" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
