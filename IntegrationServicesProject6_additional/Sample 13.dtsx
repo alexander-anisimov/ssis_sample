@@ -7,20 +7,1107 @@
   DTS:CreatorName="ALLNIGHTLONG\asd24"
   DTS:DTSID="{6A194621-3FBA-4EED-8D74-DF9BBDFFF41B}"
   DTS:ExecutableType="SSIS.Package.3"
-  DTS:LastModifiedProductVersion="11.0.3369.0"
+  DTS:LastModifiedProductVersion="14.0.3008.28"
   DTS:LocaleID="1033"
   DTS:ObjectName="Sample 13"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{2998212C-F6BC-4C61-8D86-218BF5EEB7D3}">
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{37BA4A62-1D93-46EB-BED5-08D1D08B92C1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.AdventureWorks2012]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{4B60032C-4123-4E89-A074-5DFDBAA62676}"
+      DTS:ObjectName="LocalHost.AdventureWorks2012">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=AdventureWorks2012;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.StudyDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{78AD748C-4CF7-4DF5-BA37-7B39C17D966D}"
+      DTS:ObjectName="LocalHost.StudyDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=StudyDB;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Clean temp table"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Задача &quot;Выполнение SQL&quot;"
+      DTS:DTSID="{DFDC4ADD-8FDE-4B7E-AFBE-BA98702CD474}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Clean temp table"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{2EEBD4DA-635E-4748-835D-CFCEE5B1593B}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE stg.Person; " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DataFlow Task - load to row file"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Задача потока данных"
+      DTS:Disabled="True"
+      DTS:DTSID="{B0543A56-6F9C-4C8C-A6CA-73FED20CE06C}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DataFlow Task - load to row file"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DataFlow Task - load to row file\DataDestination RowFile"
+              componentClassID="DTSAdapter.RawDestination.3"
+              contactInfo="Записывает необработанные данные, не требующие синтаксического анализа или преобразования. Пример: более быстрый запуск пакетов путем чтения из локального необработанного файла вместо медленного источника или распределения данных вручную для параллельной обработки на нескольких компьютерах.;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;2"
+              description="Записывает необработанные данные, не требующие синтаксического анализа или преобразования. Пример: более быстрый запуск пакетов путем чтения из локального необработанного файла вместо медленного источника или распределения данных вручную для параллельной обработки на нескольких компьютерах."
+              name="DataDestination RowFile"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает используемый режим доступа к файлу."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Имя выходного файла"
+                  name="FileName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.NonValidatingFileNameEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">E:\docs\git\ssis_sample\IntegrationServicesProject6_additional\TempRowFile</property>
+                <property
+                  dataType="System.Null"
+                  description="Имя переменной, содержащей имя файла"
+                  name="FileNameVariable" />
+                <property
+                  dataType="System.Int32"
+                  description="Указывает, какой параметр используется для записи в файл."
+                  name="WriteOption"
+                  typeConverter="WriteOption">0</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DataFlow Task - load to row file\DataDestination RowFile.Inputs[Вход назначения &quot;Необработанный файл&quot;]"
+                  hasSideEffects="true"
+                  name="Вход назначения &quot;Необработанный файл&quot;">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\DataDestination RowFile.Inputs[Вход назначения &quot;Необработанный файл&quot;].Columns[Title]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="Title"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Title]" />
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\DataDestination RowFile.Inputs[Вход назначения &quot;Необработанный файл&quot;].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\DataDestination RowFile.Inputs[Вход назначения &quot;Необработанный файл&quot;].Columns[MiddleName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="MiddleName"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[MiddleName]" />
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\DataDestination RowFile.Inputs[Вход назначения &quot;Необработанный файл&quot;].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[LastName]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012"
+              componentClassID="DTSAdapter.OLEDBSource.3"
+              contactInfo="Источник &quot;OLE DB&quot;;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;7"
+              description="Источник &quot;OLE DB&quot;"
+              name="DataSource AdventureWorks2012"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Время ожидания команды, в секундах. Величина 0 означает неограниченное время ожидания."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Указывает имя объекта базы данных, используемого для открытия набора строк."
+                  name="OpenRowset">[Person].[Person]</property>
+                <property
+                  dataType="System.String"
+                  description="Указывает переменную, содержащую имя объекта базы данных, используемого для открытия набора строк."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Команда SQL для выполнения."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Переменная, содержащая команду SQL для выполнения."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает кодовую страницу столбца, используемую, когда недоступны сведения о кодовой странице из источника данных."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Вызывает безусловное использование значение свойства DefaultCodePage при описании символьных данных."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает используемый режим доступа к базе данных."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Сопоставления между параметрами в команде SQL и переменными."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.AdventureWorks2012]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.AdventureWorks2012]"
+                  description="Соединение OLE DB среды выполнения, используемое для доступа к базе данных."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;]"
+                  name="Выход источника &quot;OLE DB&quot;">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[BusinessEntityID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[BusinessEntityID]"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[BusinessEntityID]"
+                      name="BusinessEntityID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[PersonType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[PersonType]"
+                      length="2"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[PersonType]"
+                      name="PersonType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[NameStyle]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[NameStyle]"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[NameStyle]"
+                      name="NameStyle"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Title]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[Title]"
+                      length="8"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Title]"
+                      name="Title"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[FirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[FirstName]"
+                      length="50"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[MiddleName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[MiddleName]"
+                      length="50"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[MiddleName]"
+                      name="MiddleName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[LastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[LastName]"
+                      length="50"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Suffix]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[Suffix]"
+                      length="10"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Suffix]"
+                      name="Suffix"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[EmailPromotion]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[EmailPromotion]"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[EmailPromotion]"
+                      name="EmailPromotion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[AdditionalContactInfo]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[AdditionalContactInfo]"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[AdditionalContactInfo]"
+                      name="AdditionalContactInfo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Demographics]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[Demographics]"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Demographics]"
+                      name="Demographics"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[rowguid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[rowguid]"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[rowguid]"
+                      name="rowguid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[ModifiedDate]"
+                      name="ModifiedDate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[BusinessEntityID]"
+                      dataType="i4"
+                      name="BusinessEntityID" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[PersonType]"
+                      dataType="wstr"
+                      length="2"
+                      name="PersonType" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[NameStyle]"
+                      dataType="bool"
+                      name="NameStyle" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[Title]"
+                      dataType="wstr"
+                      length="8"
+                      name="Title" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[MiddleName]"
+                      dataType="wstr"
+                      length="50"
+                      name="MiddleName" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[Suffix]"
+                      dataType="wstr"
+                      length="10"
+                      name="Suffix" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[EmailPromotion]"
+                      dataType="i4"
+                      name="EmailPromotion" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[AdditionalContactInfo]"
+                      dataType="nText"
+                      name="AdditionalContactInfo" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[Demographics]"
+                      dataType="nText"
+                      name="Demographics" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[rowguid]"
+                      dataType="guid"
+                      name="rowguid" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;]"
+                  isErrorOut="true"
+                  name="Вывод ошибок источника &quot;OLE DB&quot;">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[BusinessEntityID]"
+                      dataType="i4"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[BusinessEntityID]"
+                      name="BusinessEntityID" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[PersonType]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[PersonType]"
+                      name="PersonType" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[NameStyle]"
+                      dataType="bool"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[NameStyle]"
+                      name="NameStyle" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[Title]"
+                      dataType="wstr"
+                      length="8"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[Title]"
+                      name="Title" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[FirstName]"
+                      name="FirstName" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[MiddleName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[MiddleName]"
+                      name="MiddleName" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[LastName]"
+                      name="LastName" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[Suffix]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[Suffix]"
+                      name="Suffix" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[EmailPromotion]"
+                      dataType="i4"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[EmailPromotion]"
+                      name="EmailPromotion" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[AdditionalContactInfo]"
+                      dataType="nText"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[AdditionalContactInfo]"
+                      name="AdditionalContactInfo" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[Demographics]"
+                      dataType="nText"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[Demographics]"
+                      name="Demographics" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[rowguid]"
+                      dataType="guid"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[rowguid]"
+                      name="rowguid" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ModifiedDate]"
+                      name="ModifiedDate" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DataFlow Task - load to row file.Paths[Выход источника &quot;OLE DB&quot;]"
+              endId="Package\DataFlow Task - load to row file\DataDestination RowFile.Inputs[Вход назначения &quot;Необработанный файл&quot;]"
+              name="Выход источника &quot;OLE DB&quot;"
+              startId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DataFlow Task - load to temp table"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Задача потока данных"
+      DTS:DTSID="{c4f05f41-5fb4-4555-b7cf-80c24440cf53}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DataFlow Task - load to temp table"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person"
+              componentClassID="DTSAdapter.OLEDBDestination.3"
+              contactInfo="Назначение &quot;OLE DB&quot;;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;4"
+              description="Назначение &quot;OLE DB&quot;"
+              name="DataDestinaton stg Person"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Время ожидания команды, в секундах. Величина 0 означает неограниченное время ожидания."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Указывает имя объекта базы данных, используемого для открытия набора строк."
+                  name="OpenRowset">[stg].[Person]</property>
+                <property
+                  dataType="System.String"
+                  description="Указывает переменную, содержащую имя объекта базы данных, используемого для открытия набора строк."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Команда SQL для выполнения."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает кодовую страницу столбца, используемую, когда недоступны сведения о кодовой странице из источника данных."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Вызывает безусловное использование значение свойства DefaultCodePage при описании символьных данных."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает используемый режим доступа к базе данных."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Указывает, должны ли значения в столбцах идентификаторов копироваться в назначение. Если свойство имеет значение false, значения в столбцах идентификаторов будут созданы автоматически в месте назначения. Применяется только в том случае, если включена быстрая загрузка."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Указывает, будут ли в назначение вставляться значения NULL для столбцов, содержащих их. Значение false показывает, что если столбец имеет значение NULL, то в назначение будет вставлено его значение по умолчанию. Применяется только в случае, если включена быстрая загрузка."
+                  name="FastLoadKeepNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Задает параметры быстрой загрузки. Применяется только в том случае, если включена быстрая загрузка."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Задает, когда выдаются сообщения о фиксации транзакции в ходе вставки данных. Значение 0 задает, что по окончании вставки данных будет выдано одно сообщение о фиксации транзакции. Применяется только в том случае, если включена быстрая загрузка."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.StudyDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.StudyDB]"
+                  description="Соединение OLE DB среды выполнения, используемое для доступа к базе данных."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person.Inputs[Вход назначения &quot;OLE DB&quot;]"
+                  errorOrTruncationOperation="Вставить"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Вход назначения &quot;OLE DB&quot;">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[BusinessEntityID]"
+                      cachedDataType="i4"
+                      cachedName="BusinessEntityID"
+                      externalMetadataColumnId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[BusinessEntityID]"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[BusinessEntityID]" />
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[PersonType]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="PersonType"
+                      externalMetadataColumnId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[PersonType]"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[PersonType]" />
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[Title]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="Title"
+                      externalMetadataColumnId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[Title]"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Title]" />
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[FirstName]"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[MiddleName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="MiddleName"
+                      externalMetadataColumnId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[MiddleName]"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[MiddleName]" />
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      externalMetadataColumnId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[LastName]"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[Suffix]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Suffix"
+                      externalMetadataColumnId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[Suffix]"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Suffix]" />
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[ModifiedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ModifiedDate"
+                      externalMetadataColumnId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[ModifiedDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[BusinessEntityID]"
+                      dataType="i4"
+                      name="BusinessEntityID" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[PersonType]"
+                      dataType="wstr"
+                      length="2"
+                      name="PersonType" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[Title]"
+                      dataType="wstr"
+                      length="8"
+                      name="Title" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[MiddleName]"
+                      dataType="wstr"
+                      length="50"
+                      name="MiddleName" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[Suffix]"
+                      dataType="wstr"
+                      length="10"
+                      name="Suffix" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Вывод ошибок назначения &quot;OLE DB&quot;"
+                  synchronousInputId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person.Inputs[Вход назначения &quot;OLE DB&quot;]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012"
+              componentClassID="DTSAdapter.OLEDBSource.3"
+              contactInfo="Источник &quot;OLE DB&quot;;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;7"
+              description="Источник &quot;OLE DB&quot;"
+              name="DataSource AdventureWorks2012"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Время ожидания команды, в секундах. Величина 0 означает неограниченное время ожидания."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Указывает имя объекта базы данных, используемого для открытия набора строк."
+                  name="OpenRowset">[Person].[Person]</property>
+                <property
+                  dataType="System.String"
+                  description="Указывает переменную, содержащую имя объекта базы данных, используемого для открытия набора строк."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Команда SQL для выполнения."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Переменная, содержащая команду SQL для выполнения."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает кодовую страницу столбца, используемую, когда недоступны сведения о кодовой странице из источника данных."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Вызывает безусловное использование значение свойства DefaultCodePage при описании символьных данных."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает используемый режим доступа к базе данных."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Сопоставления между параметрами в команде SQL и переменными."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.AdventureWorks2012]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.AdventureWorks2012]"
+                  description="Соединение OLE DB среды выполнения, используемое для доступа к базе данных."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;]"
+                  name="Выход источника &quot;OLE DB&quot;">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[BusinessEntityID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[BusinessEntityID]"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[BusinessEntityID]"
+                      name="BusinessEntityID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[PersonType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[PersonType]"
+                      length="2"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[PersonType]"
+                      name="PersonType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[NameStyle]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[NameStyle]"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[NameStyle]"
+                      name="NameStyle"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Title]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[Title]"
+                      length="8"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Title]"
+                      name="Title"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[FirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[FirstName]"
+                      length="50"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[MiddleName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[MiddleName]"
+                      length="50"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[MiddleName]"
+                      name="MiddleName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[LastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[LastName]"
+                      length="50"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Suffix]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[Suffix]"
+                      length="10"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Suffix]"
+                      name="Suffix"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[EmailPromotion]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[EmailPromotion]"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[EmailPromotion]"
+                      name="EmailPromotion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[AdditionalContactInfo]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[AdditionalContactInfo]"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[AdditionalContactInfo]"
+                      name="AdditionalContactInfo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Demographics]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[Demographics]"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Demographics]"
+                      name="Demographics"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[rowguid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[rowguid]"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[rowguid]"
+                      name="rowguid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[ModifiedDate]"
+                      name="ModifiedDate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[BusinessEntityID]"
+                      dataType="i4"
+                      name="BusinessEntityID" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[PersonType]"
+                      dataType="wstr"
+                      length="2"
+                      name="PersonType" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[NameStyle]"
+                      dataType="bool"
+                      name="NameStyle" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[Title]"
+                      dataType="wstr"
+                      length="8"
+                      name="Title" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[MiddleName]"
+                      dataType="wstr"
+                      length="50"
+                      name="MiddleName" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[Suffix]"
+                      dataType="wstr"
+                      length="10"
+                      name="Suffix" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[EmailPromotion]"
+                      dataType="i4"
+                      name="EmailPromotion" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[AdditionalContactInfo]"
+                      dataType="nText"
+                      name="AdditionalContactInfo" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[Demographics]"
+                      dataType="nText"
+                      name="Demographics" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[rowguid]"
+                      dataType="guid"
+                      name="rowguid" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;]"
+                  isErrorOut="true"
+                  name="Вывод ошибок источника &quot;OLE DB&quot;">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[BusinessEntityID]"
+                      dataType="i4"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[BusinessEntityID]"
+                      name="BusinessEntityID" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[PersonType]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[PersonType]"
+                      name="PersonType" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[NameStyle]"
+                      dataType="bool"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[NameStyle]"
+                      name="NameStyle" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[Title]"
+                      dataType="wstr"
+                      length="8"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[Title]"
+                      name="Title" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[FirstName]"
+                      name="FirstName" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[MiddleName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[MiddleName]"
+                      name="MiddleName" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[LastName]"
+                      name="LastName" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[Suffix]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[Suffix]"
+                      name="Suffix" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[EmailPromotion]"
+                      dataType="i4"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[EmailPromotion]"
+                      name="EmailPromotion" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[AdditionalContactInfo]"
+                      dataType="nText"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[AdditionalContactInfo]"
+                      name="AdditionalContactInfo" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[Demographics]"
+                      dataType="nText"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[Demographics]"
+                      name="Demographics" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[rowguid]"
+                      dataType="guid"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[rowguid]"
+                      name="rowguid" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ModifiedDate]"
+                      name="ModifiedDate" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DataFlow Task - load to temp table\Условное разбиение"
+              componentClassID="DTSTransform.ConditionalSplit.3"
+              contactInfo="Условное разбиение;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;0"
+              description="Распределяет строки данных по разным выходам в зависимости от содержимого данных. Используйте условие (выражения SSIS), чтобы указать распределяемые строки. Пример: разделение записей, которые необходимо очистить, от подготовленных к загрузке или распределение только подмножества записей."
+              name="Условное разбиение"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DataFlow Task - load to temp table\Условное разбиение.Inputs[Вход условного разбиения]"
+                  description="Ввод преобразования &quot;Условное разбиение&quot;"
+                  name="Вход условного разбиения">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DataFlow Task - load to temp table\Условное разбиение.Outputs[Выход по умолчанию условного разбиения]"
+                  description="Выход по умолчанию преобразования &quot;Условное разбиение&quot;"
+                  exclusionGroup="1"
+                  name="Выход по умолчанию условного разбиения"
+                  synchronousInputId="Package\DataFlow Task - load to temp table\Условное разбиение.Inputs[Вход условного разбиения]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DataFlow Task - load to temp table\Условное разбиение.Outputs[Вывод ошибок условного разбиения]"
+                  description="Вывод ошибок преобразования &quot;Условное разбиение&quot;"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Вывод ошибок условного разбиения"
+                  synchronousInputId="Package\DataFlow Task - load to temp table\Условное разбиение.Inputs[Вход условного разбиения]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to temp table\Условное разбиение.Outputs[Вывод ошибок условного разбиения].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DataFlow Task - load to temp table\Условное разбиение.Outputs[Вывод ошибок условного разбиения].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to temp table\Условное разбиение.Outputs[Вывод ошибок условного разбиения].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DataFlow Task - load to temp table\Условное разбиение.Outputs[Вывод ошибок условного разбиения].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DataFlow Task - load to temp table.Paths[Выход источника &quot;OLE DB&quot;]"
+              endId="Package\DataFlow Task - load to temp table\Условное разбиение.Inputs[Вход условного разбиения]"
+              name="Выход источника &quot;OLE DB&quot;"
+              startId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;]" />
+            <path
+              refId="Package\DataFlow Task - load to temp table.Paths[Выход по умолчанию условного разбиения]"
+              endId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person.Inputs[Вход назначения &quot;OLE DB&quot;]"
+              name="Выход по умолчанию условного разбиения"
+              startId="Package\DataFlow Task - load to temp table\Условное разбиение.Outputs[Выход по умолчанию условного разбиения]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Foreach Loop Container"
       DTS:CreationName="STOCK:FOREACHLOOP"
       DTS:Description="Foreach Loop Container"
+      DTS:Disabled="True"
       DTS:DTSID="{80393C37-989B-4FA2-831C-A8B1333F44DB}"
       DTS:ExecutableType="STOCK:FOREACHLOOP"
       DTS:LocaleID="-1"
@@ -32,11 +1119,12 @@
       DTS:refId="Package\Script Task"
       DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ScriptTask.ScriptTask, Microsoft.SqlServer.ScriptTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:Description="Script Task"
+      DTS:Disabled="True"
       DTS:DTSID="{D7E8438B-A33C-42C9-9046-199ACB1C28F3}"
       DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ScriptTask.ScriptTask, Microsoft.SqlServer.ScriptTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:LocaleID="-1"
       DTS:ObjectName="Script Task"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <ScriptProject
@@ -56,56 +1144,86 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\Script Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Ограничение]"
+      DTS:CreationName=""
+      DTS:DTSID="{65D6E41F-D555-4AFD-BA9E-11B5AEEF3DF3}"
+      DTS:From="Package\Clean temp table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Ограничение"
+      DTS:To="Package\DataFlow Task - load to temp table" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
-<!--If you manually edit this section and make a mistake, you can delete it. -->
-<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<!--В данном разделе CDATA содержатся сведения о макете пакета. В данном разделе содержатся сведения о координатах (x,y), ширине и высоте.-->
+<!--В случае возникновения ошибки при редактировании этого раздела вручную его можно удалить. -->
+<!--Пакет можно загрузить обычным образом, но прежние сведения о макете будут утеряны, и конструктор автоматически перераспределит элементы в области конструктора.-->
 <Objects
   Version="sql11">
-  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <!--Все приведенные ниже узлы будут содержать свойства, не влияющие на поведение среды выполнения.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="205,55"
           Size="205,98"
           Id="Package\Foreach Loop Container"
-          TopLeft="108.105359441924,96.0797892403861" />
+          TopLeft="73.105359441924,92.0797892403861" />
         <NodeLayout
           Size="131,42"
           Id="Package\Script Task"
-          TopLeft="162,317" />
+          TopLeft="117,247" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="210.605359441924,194.079789240386">
+          TopLeft="179.052679720962,190.079789240386">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="16.8946405580763,122.920210759614"
+              EndConnector="0,56.9202107596139"
               Start="0,0"
-              End="16.8946405580763,115.420210759614">
+              End="0,49.4202107596139">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,57.4601053798069" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,57.4601053798069"
-                    Point2="0,61.4601053798069"
-                    Point3="4,61.4601053798069" />
+                    End="0,49.4202107596139" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="233,42"
+          Id="Package\DataFlow Task - load to row file"
+          TopLeft="388.5,116.5" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\Clean temp table"
+          TopLeft="740,114" />
+        <NodeLayout
+          Size="249,42"
+          Id="Package\DataFlow Task - load to temp table"
+          TopLeft="693,226" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Ограничение]"
+          TopLeft="819.25,156">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,70"
+              Start="0,0"
+              End="0,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="12.8946405580763,61.4601053798069" />
-                  <mssgle:CubicBezierSegment
-                    Point1="12.8946405580763,61.4601053798069"
-                    Point2="16.8946405580763,61.4601053798069"
-                    Point3="16.8946405580763,65.4601053798069" />
-                  <mssgle:LineSegment
-                    End="16.8946405580763,115.420210759614" />
+                    End="0,62.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -117,5 +1235,157 @@
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\DataFlow Task - load to row file">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="246,42"
+          Id="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012"
+          TopLeft="319.5,144.5" />
+        <NodeLayout
+          Size="200,42"
+          Id="Package\DataFlow Task - load to row file\DataDestination RowFile"
+          TopLeft="347,325" />
+        <EdgeLayout
+          Id="Package\DataFlow Task - load to row file.Paths[Выход источника &quot;OLE DB&quot;]"
+          TopLeft="444.75,186.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,138.5"
+              Start="0,0"
+              End="0,131">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,131" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DataFlow Task - load to temp table">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="246,42"
+          Id="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012"
+          TopLeft="245.5,101.5" />
+        <NodeLayout
+          Size="210,42"
+          Id="Package\DataFlow Task - load to temp table\DataDestinaton stg Person"
+          TopLeft="237,398" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\DataFlow Task - load to temp table\Условное разбиение"
+          TopLeft="361,266" />
+        <EdgeLayout
+          Id="Package\DataFlow Task - load to temp table.Paths[Выход источника &quot;OLE DB&quot;]"
+          TopLeft="368.5,143.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="85.5,122.5"
+              Start="0,0"
+              End="85.5,115">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,57.25"
+                    Point2="0,61.25"
+                    Point3="4,61.25" />
+                  <mssgle:LineSegment
+                    End="81.5,61.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="81.5,61.25"
+                    Point2="85.5,61.25"
+                    Point3="85.5,65.25" />
+                  <mssgle:LineSegment
+                    End="85.5,115" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DataFlow Task - load to temp table.Paths[Выход по умолчанию условного разбиения]"
+          TopLeft="454,308">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-112,90"
+              Start="0,0"
+              End="-112,82.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41"
+                    Point2="0,45"
+                    Point3="-4,45" />
+                  <mssgle:LineSegment
+                    End="-108,45" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-108,45"
+                    Point2="-112,45"
+                    Point3="-112,49" />
+                  <mssgle:LineSegment
+                    End="-112,82.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DataFlow Task - load to temp table\DataDestinaton stg Person">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

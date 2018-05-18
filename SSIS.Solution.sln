@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2010
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "IntegrationServicesProject", "IntegrationServicesProject\IntegrationServicesProject.dtproj", "{ECC8F6B4-E588-42C3-BFAB-A372B8E81BC7}"
 EndProject
 Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "IntegrationServicesProject2", "IntegrationServicesProject2\IntegrationServicesProject2.dtproj", "{6C243462-3E30-4E4D-BC25-200624D56E7C}"
