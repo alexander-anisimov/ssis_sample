@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2010
 Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "IntegrationServicesProject", "IntegrationServicesProject\IntegrationServicesProject.dtproj", "{ECC8F6B4-E588-42C3-BFAB-A372B8E81BC7}"
 EndProject
 Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "IntegrationServicesProject2", "IntegrationServicesProject2\IntegrationServicesProject2.dtproj", "{6C243462-3E30-4E4D-BC25-200624D56E7C}"
@@ -10,6 +10,8 @@ EndProject
 Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "IntegrationServicesProject4", "IntegrationServicesProject4\IntegrationServicesProject4.dtproj", "{FC78BC1B-9304-4CAB-ACF4-DC698A6470E5}"
 EndProject
 Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "IntegrationServicesProject5", "IntegrationServicesProject5\IntegrationServicesProject5.dtproj", "{94EE8DFC-E5C1-4475-92C6-634558FC25F2}"
+EndProject
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "IntegrationServicesProject6_additional", "IntegrationServicesProject6_additional\IntegrationServicesProject6_additional.dtproj", "{B53ECBE5-0DD3-4246-9C1A-8A229F3648F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,8 @@ Global
 		{FC78BC1B-9304-4CAB-ACF4-DC698A6470E5}.Development|Default.Deploy.0 = Development
 		{94EE8DFC-E5C1-4475-92C6-634558FC25F2}.Development|Default.ActiveCfg = Development
 		{94EE8DFC-E5C1-4475-92C6-634558FC25F2}.Development|Default.Build.0 = Development
+		{B53ECBE5-0DD3-4246-9C1A-8A229F3648F8}.Development|Default.ActiveCfg = Development
+		{B53ECBE5-0DD3-4246-9C1A-8A229F3648F8}.Development|Default.Build.0 = Development
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
