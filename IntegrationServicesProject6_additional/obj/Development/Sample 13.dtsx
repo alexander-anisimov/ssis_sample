@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Sample 13"
   DTS:PackageType="5"
-  DTS:VersionBuild="14"
-  DTS:VersionGUID="{37BA4A62-1D93-46EB-BED5-08D1D08B92C1}">
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{36FC0A26-FD13-447C-97A9-D57602C4583B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
@@ -37,7 +37,28 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
-  <DTS:Variables />
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{2ACAD154-A6F2-4573-8B5F-988A23F167E2}"
+      DTS:ObjectName="ParamPackage">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Test</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A6F82DB6-8BF2-4EA7-A9C7-49838A1245D3}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VariablePackage">
+      <DTS:VariableValue
+        DTS:DataType="8">Test</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\Clean temp table"
@@ -1034,6 +1055,166 @@
               </outputs>
             </component>
             <component
+              refId="Package\DataFlow Task - load to temp table\Lookup"
+              componentClassID="DTSTransform.Lookup.3"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[DatabaseLog]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[DatabaseLog]) [refTable]
+where [refTable].[DatabaseUser] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="DatabaseLogID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PostTime" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DatabaseUser" dataType="DT_WSTR" length="128" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Event" dataType="DT_WSTR" length="128" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Schema" dataType="DT_WSTR" length="128" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Object" dataType="DT_WSTR" length="128" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TSQL" dataType="DT_NTEXT" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="XmlEvent" dataType="DT_NTEXT" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника "OLE DB"].Columns[Title]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DataFlow Task - load to temp table\Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.AdventureWorks2012]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.AdventureWorks2012]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DataFlow Task - load to temp table\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to temp table\Lookup.Inputs[Lookup Input].Columns[Title]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="Title"
+                      lineageId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;].Columns[Title]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Указывает в ссылочной таблице столбец, который соединен с данным столбцом."
+                          name="JoinToReferenceColumn">DatabaseUser</property>
+                        <property
+                          dataType="System.Null"
+                          description="Указывает в ссылочной таблице столбец, из которого копируется данный столбец."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DataFlow Task - load to temp table\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DataFlow Task - load to temp table\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to temp table\Lookup.Outputs[Lookup Match Output].Columns[DatabaseUser]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Копировать столбец"
+                      length="128"
+                      lineageId="Package\DataFlow Task - load to temp table\Lookup.Outputs[Lookup Match Output].Columns[DatabaseUser]"
+                      name="DatabaseUser"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Указывает в ссылочной таблице столбец, из которого копируется данный столбец."
+                          name="CopyFromReferenceColumn">DatabaseUser</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DataFlow Task - load to temp table\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DataFlow Task - load to temp table\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DataFlow Task - load to temp table\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DataFlow Task - load to temp table\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to temp table\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DataFlow Task - load to temp table\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to temp table\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DataFlow Task - load to temp table\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\DataFlow Task - load to temp table\Условное разбиение"
               componentClassID="DTSTransform.ConditionalSplit.3"
               contactInfo="Условное разбиение;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;0"
@@ -1090,13 +1271,18 @@
           </components>
           <paths>
             <path
+              refId="Package\DataFlow Task - load to temp table.Paths[Lookup Match Output]"
+              endId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person.Inputs[Вход назначения &quot;OLE DB&quot;]"
+              name="Lookup Match Output"
+              startId="Package\DataFlow Task - load to temp table\Lookup.Outputs[Lookup Match Output]" />
+            <path
               refId="Package\DataFlow Task - load to temp table.Paths[Выход источника &quot;OLE DB&quot;]"
               endId="Package\DataFlow Task - load to temp table\Условное разбиение.Inputs[Вход условного разбиения]"
               name="Выход источника &quot;OLE DB&quot;"
               startId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012.Outputs[Выход источника &quot;OLE DB&quot;]" />
             <path
               refId="Package\DataFlow Task - load to temp table.Paths[Выход по умолчанию условного разбиения]"
-              endId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person.Inputs[Вход назначения &quot;OLE DB&quot;]"
+              endId="Package\DataFlow Task - load to temp table\Lookup.Inputs[Lookup Input]"
               name="Выход по умолчанию условного разбиения"
               startId="Package\DataFlow Task - load to temp table\Условное разбиение.Outputs[Выход по умолчанию условного разбиения]" />
           </paths>
@@ -1165,6 +1351,18 @@
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="162,42"
+          Id="Package\Clean temp table"
+          TopLeft="740,114" />
+        <NodeLayout
+          Size="233,42"
+          Id="Package\DataFlow Task - load to row file"
+          TopLeft="388.5,116.5" />
+        <NodeLayout
+          Size="249,42"
+          Id="Package\DataFlow Task - load to temp table"
+          TopLeft="693,226" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -1198,18 +1396,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="233,42"
-          Id="Package\DataFlow Task - load to row file"
-          TopLeft="388.5,116.5" />
-        <NodeLayout
-          Size="162,42"
-          Id="Package\Clean temp table"
-          TopLeft="740,114" />
-        <NodeLayout
-          Size="249,42"
-          Id="Package\DataFlow Task - load to temp table"
-          TopLeft="693,226" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Ограничение]"
           TopLeft="819.25,156">
@@ -1290,45 +1476,49 @@
     design-time-name="Package\DataFlow Task - load to temp table">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="246,42"
-          Id="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012"
-          TopLeft="245.5,101.5" />
-        <NodeLayout
-          Size="210,42"
-          Id="Package\DataFlow Task - load to temp table\DataDestinaton stg Person"
-          TopLeft="237,398" />
+          Size="113,42"
+          Id="Package\DataFlow Task - load to temp table\Lookup"
+          TopLeft="545,331" />
         <NodeLayout
           Size="186,42"
           Id="Package\DataFlow Task - load to temp table\Условное разбиение"
-          TopLeft="361,266" />
+          TopLeft="351,224" />
+        <NodeLayout
+          Size="210,42"
+          Id="Package\DataFlow Task - load to temp table\DataDestinaton stg Person"
+          TopLeft="767,418" />
+        <NodeLayout
+          Size="246,42"
+          Id="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012"
+          TopLeft="184.5,101.5" />
         <EdgeLayout
-          Id="Package\DataFlow Task - load to temp table.Paths[Выход источника &quot;OLE DB&quot;]"
-          TopLeft="368.5,143.5">
+          Id="Package\DataFlow Task - load to temp table.Paths[Выход по умолчанию условного разбиения]"
+          TopLeft="444,266">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="85.5,122.5"
+              EndConnector="157.5,65"
               Start="0,0"
-              End="85.5,115">
+              End="157.5,57.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,57.25" />
+                    End="0,28.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,57.25"
-                    Point2="0,61.25"
-                    Point3="4,61.25" />
+                    Point1="0,28.5"
+                    Point2="0,32.5"
+                    Point3="4,32.5" />
                   <mssgle:LineSegment
-                    End="81.5,61.25" />
+                    End="153.5,32.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="81.5,61.25"
-                    Point2="85.5,61.25"
-                    Point3="85.5,65.25" />
+                    Point1="153.5,32.5"
+                    Point2="157.5,32.5"
+                    Point3="157.5,36.5" />
                   <mssgle:LineSegment
-                    End="85.5,115" />
+                    End="157.5,57.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1338,42 +1528,101 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DataFlow Task - load to temp table.Paths[Выход по умолчанию условного разбиения]"
-          TopLeft="454,308">
+          Id="Package\DataFlow Task - load to temp table.Paths[Выход источника &quot;OLE DB&quot;]"
+          TopLeft="307.5,143.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-112,90"
+              EndConnector="136.5,80.5"
               Start="0,0"
-              End="-112,82.5">
+              End="136.5,73">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,41" />
+                    End="0,36.25" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,41"
-                    Point2="0,45"
-                    Point3="-4,45" />
+                    Point1="0,36.25"
+                    Point2="0,40.25"
+                    Point3="4,40.25" />
                   <mssgle:LineSegment
-                    End="-108,45" />
+                    End="132.5,40.25" />
                   <mssgle:CubicBezierSegment
-                    Point1="-108,45"
-                    Point2="-112,45"
-                    Point3="-112,49" />
+                    Point1="132.5,40.25"
+                    Point2="136.5,40.25"
+                    Point3="136.5,44.25" />
                   <mssgle:LineSegment
-                    End="-112,82.5" />
+                    End="136.5,73" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DataFlow Task - load to temp table.Paths[Lookup Match Output]"
+          TopLeft="601.5,373">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="270.5,45"
+              Start="0,0"
+              End="270.5,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.5"
+                    Point2="0,22.5"
+                    Point3="4,22.5" />
+                  <mssgle:LineSegment
+                    End="266.5,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="266.5,22.5"
+                    Point2="270.5,22.5"
+                    Point3="270.5,26.5" />
+                  <mssgle:LineSegment
+                    End="270.5,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="87.05861328125,27.5,96.3827734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DataFlow Task - load to temp table\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DatabaseLog]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DataFlow Task - load to temp table\DataDestinaton stg Person">
     <Properties>
