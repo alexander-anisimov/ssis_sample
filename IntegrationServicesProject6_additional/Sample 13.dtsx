@@ -7,12 +7,12 @@
   DTS:CreatorName="ALLNIGHTLONG\asd24"
   DTS:DTSID="{6A194621-3FBA-4EED-8D74-DF9BBDFFF41B}"
   DTS:ExecutableType="SSIS.Package.3"
-  DTS:LastModifiedProductVersion="11.0.3369.0"
+  DTS:LastModifiedProductVersion="14.0.3008.28"
   DTS:LocaleID="1033"
   DTS:ObjectName="Sample 13"
   DTS:PackageType="5"
-  DTS:VersionBuild="22"
-  DTS:VersionGUID="{9083E24F-814A-41B7-B513-7CA8FE4A169F}">
+  DTS:VersionBuild="26"
+  DTS:VersionGUID="{2576B645-D1B6-4F0A-A0BE-F56F6FE975C4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
@@ -64,6 +64,7 @@
       DTS:refId="Package\Clean temp table"
       DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:Description="Задача &quot;Выполнение SQL&quot;"
+      DTS:Disabled="True"
       DTS:DTSID="{DFDC4ADD-8FDE-4B7E-AFBE-BA98702CD474}"
       DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:LocaleID="-1"
@@ -93,7 +94,7 @@
           <components>
             <component
               refId="Package\DataFlow Task - load to row file\DataDestination RowFile"
-              componentClassID="{04762BB6-892F-4EE6-AD46-9CEB0A7EC7A2}"
+              componentClassID="DTSAdapter.RawDestination.3"
               contactInfo="Записывает необработанные данные, не требующие синтаксического анализа или преобразования. Пример: более быстрый запуск пакетов путем чтения из локального необработанного файла вместо медленного источника или распределения данных вручную для параллельной обработки на нескольких компьютерах.;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;2"
               description="Записывает необработанные данные, не требующие синтаксического анализа или преобразования. Пример: более быстрый запуск пакетов путем чтения из локального необработанного файла вместо медленного источника или распределения данных вручную для параллельной обработки на нескольких компьютерах."
               name="DataDestination RowFile"
@@ -156,7 +157,7 @@
             </component>
             <component
               refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012"
-              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              componentClassID="DTSAdapter.OLEDBSource.3"
               contactInfo="Источник &quot;OLE DB&quot;;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;7"
               description="Источник &quot;OLE DB&quot;"
               name="DataSource AdventureWorks2012"
@@ -509,6 +510,7 @@
       DTS:refId="Package\DataFlow Task - load to temp table"
       DTS:CreationName="SSIS.Pipeline.3"
       DTS:Description="Задача потока данных"
+      DTS:Disabled="True"
       DTS:DTSID="{c4f05f41-5fb4-4555-b7cf-80c24440cf53}"
       DTS:ExecutableType="SSIS.Pipeline.3"
       DTS:LocaleID="-1"
@@ -521,7 +523,7 @@
           <components>
             <component
               refId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person"
-              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              componentClassID="DTSAdapter.OLEDBDestination.3"
               contactInfo="Назначение &quot;OLE DB&quot;;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;4"
               description="Назначение &quot;OLE DB&quot;"
               name="DataDestinaton stg Person"
@@ -716,7 +718,7 @@
             </component>
             <component
               refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012"
-              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              componentClassID="DTSAdapter.OLEDBSource.3"
               contactInfo="Источник &quot;OLE DB&quot;;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;7"
               description="Источник &quot;OLE DB&quot;"
               name="DataSource AdventureWorks2012"
@@ -1056,7 +1058,7 @@
             </component>
             <component
               refId="Package\DataFlow Task - load to temp table\Lookup"
-              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
+              componentClassID="DTSTransform.Lookup.3"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
               description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
               name="Lookup"
@@ -1216,7 +1218,7 @@ where [refTable].[DatabaseUser] = ?</property>
             </component>
             <component
               refId="Package\DataFlow Task - load to temp table\Условное разбиение"
-              componentClassID="{7F88F654-4E20-4D14-84F4-AF9C925D3087}"
+              componentClassID="DTSTransform.ConditionalSplit.3"
               contactInfo="Условное разбиение;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;0"
               description="Распределяет строки данных по разным выходам в зависимости от содержимого данных. Используйте условие (выражения SSIS), чтобы указать распределяемые строки. Пример: разделение записей, которые необходимо очистить, от подготовленных к загрузке или распределение только подмножества записей."
               name="Условное разбиение"
@@ -1320,6 +1322,25 @@ where [refTable].[DatabaseUser] = ?</property>
           Language="CSharp" />
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Задача &quot;Выполнение пакета&quot;"
+      DTS:CreationName="SSIS.ExecutePackageTask.3"
+      DTS:Description="Задача &quot;Выполнение пакета&quot;"
+      DTS:DTSID="{33E4D2D3-0266-40A7-B978-7EFEBA384143}"
+      DTS:ExecutableType="SSIS.ExecutePackageTask.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Задача &quot;Выполнение пакета&quot;"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="Connection">@[$Project::StudyDB_dev]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>childPackage.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
@@ -1340,12 +1361,12 @@ where [refTable].[DatabaseUser] = ?</property>
       DTS:To="Package\DataFlow Task - load to temp table" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
-<!--If you manually edit this section and make a mistake, you can delete it. -->
-<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<!--В данном разделе CDATA содержатся сведения о макете пакета. В данном разделе содержатся сведения о координатах (x,y), ширине и высоте.-->
+<!--В случае возникновения ошибки при редактировании этого раздела вручную его можно удалить. -->
+<!--Пакет можно загрузить обычным образом, но прежние сведения о макете будут утеряны, и конструктор автоматически перераспределит элементы в области конструктора.-->
 <Objects
   Version="sql11">
-  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <!--Все приведенные ниже узлы будут содержать свойства, не влияющие на поведение среды выполнения.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
@@ -1418,6 +1439,10 @@ where [refTable].[DatabaseUser] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="230,42"
+          Id="Package\Задача &quot;Выполнение пакета&quot;"
+          TopLeft="368,324" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1425,7 +1450,7 @@ where [refTable].[DatabaseUser] = ?</property>
     design-time-name="Package\DataFlow Task - load to row file">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="246,42"
           Id="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012"
@@ -1453,7 +1478,9 @@ where [refTable].[DatabaseUser] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -1524,7 +1551,9 @@ where [refTable].[DatabaseUser] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1558,7 +1587,9 @@ where [refTable].[DatabaseUser] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout

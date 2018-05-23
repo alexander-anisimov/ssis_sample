@@ -2,13 +2,18 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>IntegrationServicesProject6_additional</Name>
-    <LastWriteTime>2018-05-22T12:56:07.1038129Z</LastWriteTime>
+    <LastWriteTime>2018-05-23T13:54:21.0395418Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>Sample 13.dtsx</Name>
-      <LastWriteTime>2018-05-22T12:56:03.540368Z</LastWriteTime>
+      <LastWriteTime>2018-05-23T14:27:01.1670268Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>childPackage.dtsx</Name>
+      <LastWriteTime>2018-05-23T13:58:24.1141196Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
