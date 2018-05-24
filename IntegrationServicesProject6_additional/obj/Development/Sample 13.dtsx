@@ -7,12 +7,12 @@
   DTS:CreatorName="ALLNIGHTLONG\asd24"
   DTS:DTSID="{6A194621-3FBA-4EED-8D74-DF9BBDFFF41B}"
   DTS:ExecutableType="SSIS.Package.3"
-  DTS:LastModifiedProductVersion="14.0.3008.28"
+  DTS:LastModifiedProductVersion="11.0.3369.0"
   DTS:LocaleID="1033"
   DTS:ObjectName="Sample 13"
   DTS:PackageType="5"
-  DTS:VersionBuild="26"
-  DTS:VersionGUID="{2576B645-D1B6-4F0A-A0BE-F56F6FE975C4}">
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{62C6C6F2-A8C1-4948-907A-3798BC569393}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
@@ -69,7 +69,7 @@
       DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:LocaleID="-1"
       DTS:ObjectName="Clean temp table"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -94,7 +94,7 @@
           <components>
             <component
               refId="Package\DataFlow Task - load to row file\DataDestination RowFile"
-              componentClassID="DTSAdapter.RawDestination.3"
+              componentClassID="{04762BB6-892F-4EE6-AD46-9CEB0A7EC7A2}"
               contactInfo="Записывает необработанные данные, не требующие синтаксического анализа или преобразования. Пример: более быстрый запуск пакетов путем чтения из локального необработанного файла вместо медленного источника или распределения данных вручную для параллельной обработки на нескольких компьютерах.;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;2"
               description="Записывает необработанные данные, не требующие синтаксического анализа или преобразования. Пример: более быстрый запуск пакетов путем чтения из локального необработанного файла вместо медленного источника или распределения данных вручную для параллельной обработки на нескольких компьютерах."
               name="DataDestination RowFile"
@@ -157,7 +157,7 @@
             </component>
             <component
               refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012"
-              componentClassID="DTSAdapter.OLEDBSource.3"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
               contactInfo="Источник &quot;OLE DB&quot;;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;7"
               description="Источник &quot;OLE DB&quot;"
               name="DataSource AdventureWorks2012"
@@ -495,8 +495,1172 @@
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\DataFlow Task - load to row file\Derived Column"
+              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DataFlow Task - load to row file\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DataFlow Task - load to row file\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DataFlow Task - load to row file\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\Derived Column.Outputs[Derived Column Output].Columns[Phone]"
+                      codePage="1252"
+                      dataType="str"
+                      description="Phone"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\DataFlow Task - load to row file\Derived Column.Outputs[Derived Column Output].Columns[Phone]"
+                      name="Phone"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,20,1252)("False")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,20,1252)("False")</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DataFlow Task - load to row file\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DataFlow Task - load to row file\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DataFlow Task - load to row file\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DataFlow Task - load to row file\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DataFlow Task - load to row file\Derived Column 1"
+              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DataFlow Task - load to row file\Derived Column 1.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DataFlow Task - load to row file\Derived Column 1.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DataFlow Task - load to row file\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\Derived Column 1.Outputs[Derived Column Output].Columns[Phone]"
+                      codePage="1251"
+                      dataType="str"
+                      description="Phone"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\DataFlow Task - load to row file\Derived Column 1.Outputs[Derived Column Output].Columns[Phone]"
+                      name="Phone"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,20,1251)("True")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,20,1251)("True")</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DataFlow Task - load to row file\Derived Column 1.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DataFlow Task - load to row file\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DataFlow Task - load to row file\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DataFlow Task - load to row file\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DataFlow Task - load to row file\Insert Destination"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Employee]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DataFlow Task - load to row file\Insert Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.StudyDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.StudyDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DataFlow Task - load to row file\Insert Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Insert Destination.Inputs[OLE DB Destination Input].Columns[BusinessEntityID]"
+                      cachedDataType="i4"
+                      cachedName="BusinessEntityID"
+                      externalMetadataColumnId="Package\DataFlow Task - load to row file\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmployeeId]"
+                      lineageId="Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[BusinessEntityID]" />
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Insert Destination.Inputs[OLE DB Destination Input].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      externalMetadataColumnId="Package\DataFlow Task - load to row file\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      lineageId="Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Insert Destination.Inputs[OLE DB Destination Input].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\DataFlow Task - load to row file\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      lineageId="Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Insert Destination.Inputs[OLE DB Destination Input].Columns[Phone]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Phone"
+                      externalMetadataColumnId="Package\DataFlow Task - load to row file\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Phone]"
+                      lineageId="Package\DataFlow Task - load to row file\Derived Column 1.Outputs[Derived Column Output].Columns[Phone]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to row file\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmployeeId]"
+                      dataType="i4"
+                      name="EmployeeId" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to row file\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="64"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to row file\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="64"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to row file\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateOfBirth]"
+                      dataType="dbTimeStamp"
+                      name="DateOfBirth" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to row file\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Phone]"
+                      codePage="1251"
+                      dataType="str"
+                      length="20"
+                      name="Phone" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to row file\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Picture]"
+                      dataType="image"
+                      name="Picture" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DataFlow Task - load to row file\Insert Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DataFlow Task - load to row file\Insert Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DataFlow Task - load to row file\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DataFlow Task - load to row file\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DataFlow Task - load to row file\OLE DB Command"
+              componentClassID="{93FFEC66-CBC8-4C7F-9C6A-CB1C17A7567D}"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [dbo].[Employee] SET [Phone] = ? WHERE [EmployeeId] = ? AND [Phone] = 'True'</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DataFlow Task - load to row file\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.StudyDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.StudyDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DataFlow Task - load to row file\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\OLE DB Command.Inputs[OLE DB Command Input].Columns[BusinessEntityID]"
+                      cachedDataType="i4"
+                      cachedName="BusinessEntityID"
+                      externalMetadataColumnId="Package\DataFlow Task - load to row file\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[BusinessEntityID]" />
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\OLE DB Command.Inputs[OLE DB Command Input].Columns[Phone]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Phone"
+                      externalMetadataColumnId="Package\DataFlow Task - load to row file\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\DataFlow Task - load to row file\Derived Column.Outputs[Derived Column Output].Columns[Phone]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to row file\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to row file\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="i4"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">17</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DataFlow Task - load to row file\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\DataFlow Task - load to row file\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DataFlow Task - load to row file\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\DataFlow Task - load to row file\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DataFlow Task - load to row file\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DataFlow Task - load to row file\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DataFlow Task - load to row file\Slowly Changing Dimension"
+              componentClassID="{25BBB0C5-369B-4303-B3DF-D0DC741DEE58}"
+              contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
+              name="Slowly Changing Dimension"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SELECT statement used to create a schema rowset."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [EmployeeId], [FirstName], [LastName],[Phone] FROM [dbo].[Employee]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
+                  name="CurrentRowWhere">[Phone] = 'True'</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
+                  name="UpdateChangingAttributeHistory">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
+                  name="FailOnFixedAttributeChange">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the column name for the inferred member."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether inferred member updates are detected."
+                  name="EnableInferredMember">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when a lookup of an existing record fails."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies that all rows in the input are new or the transformation detects the change type."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DataFlow Task - load to row file\Slowly Changing Dimension.Connections[LookupConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.StudyDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.StudyDB]"
+                  description="Defines the connection to use for lookups in the dimension table"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DataFlow Task - load to row file\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                  name="Slowly Changing Dimension Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[BusinessEntityID]"
+                      cachedDataType="i4"
+                      cachedName="BusinessEntityID"
+                      externalMetadataColumnId="Package\DataFlow Task - load to row file\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[EmployeeId]"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[BusinessEntityID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\DataFlow Task - load to row file\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[FirstName]"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[FirstName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      externalMetadataColumnId="Package\DataFlow Task - load to row file\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[LastName]"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[LastName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">3</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to row file\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[EmployeeId]"
+                      dataType="i4"
+                      name="EmployeeId" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to row file\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="64"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to row file\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="64"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\DataFlow Task - load to row file\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Phone]"
+                      codePage="1251"
+                      dataType="str"
+                      length="20"
+                      name="Phone" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DataFlow Task - load to row file\Slowly Changing Dimension.Outputs[Unchanged Output]"
+                  description="Unchanged rows"
+                  exclusionGroup="1"
+                  name="Unchanged Output"
+                  synchronousInputId="Package\DataFlow Task - load to row file\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DataFlow Task - load to row file\Slowly Changing Dimension.Outputs[New Output]"
+                  description="New rows"
+                  exclusionGroup="1"
+                  name="New Output"
+                  synchronousInputId="Package\DataFlow Task - load to row file\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DataFlow Task - load to row file\Slowly Changing Dimension.Outputs[Fixed Attribute Output]"
+                  description="Rows with changes in columns tagged FixedAttribute"
+                  exclusionGroup="1"
+                  name="Fixed Attribute Output"
+                  synchronousInputId="Package\DataFlow Task - load to row file\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DataFlow Task - load to row file\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]"
+                  description="These rows contain new information for ChangingAttribute (Type 1) column changes"
+                  exclusionGroup="1"
+                  name="Changing Attribute Updates Output"
+                  synchronousInputId="Package\DataFlow Task - load to row file\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DataFlow Task - load to row file\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]"
+                  description="HistoricalAttribute (Type 2) changes result in these new rows"
+                  exclusionGroup="2"
+                  name="Historical Attribute Inserts Output"
+                  synchronousInputId="Package\DataFlow Task - load to row file\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DataFlow Task - load to row file\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]"
+                  description="Information to update unpopulated initial dimension row"
+                  exclusionGroup="1"
+                  name="Inferred Member Updates Output"
+                  synchronousInputId="Package\DataFlow Task - load to row file\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DataFlow Task - load to row file\Union All"
+              componentClassID="{B594E9A8-4351-4939-891C-CFE1AB93E925}"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\DataFlow Task - load to row file\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Inputs[Union All Input 1].Columns[BusinessEntityID]"
+                      cachedDataType="i4"
+                      cachedName="BusinessEntityID"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[BusinessEntityID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[BusinessEntityID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Inputs[Union All Input 1].Columns[PersonType]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="PersonType"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[PersonType]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[PersonType]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Inputs[Union All Input 1].Columns[NameStyle]"
+                      cachedDataType="bool"
+                      cachedName="NameStyle"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[NameStyle]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[NameStyle]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Inputs[Union All Input 1].Columns[Title]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="Title"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[Title]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[Title]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Inputs[Union All Input 1].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[FirstName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[FirstName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Inputs[Union All Input 1].Columns[MiddleName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="MiddleName"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[MiddleName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[MiddleName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Inputs[Union All Input 1].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[LastName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[LastName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Inputs[Union All Input 1].Columns[Suffix]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Suffix"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[Suffix]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[Suffix]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Inputs[Union All Input 1].Columns[EmailPromotion]"
+                      cachedDataType="i4"
+                      cachedName="EmailPromotion"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[EmailPromotion]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[EmailPromotion]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Inputs[Union All Input 1].Columns[AdditionalContactInfo]"
+                      cachedDataType="nText"
+                      cachedName="AdditionalContactInfo"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[AdditionalContactInfo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[AdditionalContactInfo]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Inputs[Union All Input 1].Columns[Demographics]"
+                      cachedDataType="nText"
+                      cachedName="Demographics"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[Demographics]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[Demographics]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Inputs[Union All Input 1].Columns[rowguid]"
+                      cachedDataType="guid"
+                      cachedName="rowguid"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[rowguid]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[rowguid]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Inputs[Union All Input 1].Columns[ModifiedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ModifiedDate"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ModifiedDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[ModifiedDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Inputs[Union All Input 1].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ErrorCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[ErrorCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Inputs[Union All Input 1].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ErrorColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DataFlow Task - load to row file\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Inputs[Union All Input 2].Columns[BusinessEntityID]"
+                      cachedDataType="i4"
+                      cachedName="BusinessEntityID"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[BusinessEntityID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[BusinessEntityID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Inputs[Union All Input 2].Columns[PersonType]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="PersonType"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[PersonType]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[PersonType]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Inputs[Union All Input 2].Columns[NameStyle]"
+                      cachedDataType="bool"
+                      cachedName="NameStyle"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[NameStyle]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[NameStyle]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Inputs[Union All Input 2].Columns[Title]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="Title"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[Title]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[Title]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Inputs[Union All Input 2].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[FirstName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[FirstName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Inputs[Union All Input 2].Columns[MiddleName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="MiddleName"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[MiddleName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[MiddleName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Inputs[Union All Input 2].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[LastName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[LastName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Inputs[Union All Input 2].Columns[Suffix]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Suffix"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[Suffix]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[Suffix]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Inputs[Union All Input 2].Columns[EmailPromotion]"
+                      cachedDataType="i4"
+                      cachedName="EmailPromotion"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[EmailPromotion]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[EmailPromotion]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Inputs[Union All Input 2].Columns[AdditionalContactInfo]"
+                      cachedDataType="nText"
+                      cachedName="AdditionalContactInfo"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[AdditionalContactInfo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[AdditionalContactInfo]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Inputs[Union All Input 2].Columns[Demographics]"
+                      cachedDataType="nText"
+                      cachedName="Demographics"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[Demographics]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[Demographics]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Inputs[Union All Input 2].Columns[rowguid]"
+                      cachedDataType="guid"
+                      cachedName="rowguid"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[rowguid]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[rowguid]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Inputs[Union All Input 2].Columns[ModifiedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ModifiedDate"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ModifiedDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[ModifiedDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Inputs[Union All Input 2].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ErrorCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[ErrorCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Inputs[Union All Input 2].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      lineageId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ErrorColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DataFlow Task - load to row file\Union All.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[BusinessEntityID]"
+                      dataType="i4"
+                      lineageId="Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[BusinessEntityID]"
+                      name="BusinessEntityID" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[PersonType]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[PersonType]"
+                      name="PersonType" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[NameStyle]"
+                      dataType="bool"
+                      lineageId="Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[NameStyle]"
+                      name="NameStyle" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[Title]"
+                      dataType="wstr"
+                      length="8"
+                      lineageId="Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[Title]"
+                      name="Title" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[FirstName]"
+                      name="FirstName" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[MiddleName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[MiddleName]"
+                      name="MiddleName" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[LastName]"
+                      name="LastName" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[Suffix]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[Suffix]"
+                      name="Suffix" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[EmailPromotion]"
+                      dataType="i4"
+                      lineageId="Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[EmailPromotion]"
+                      name="EmailPromotion" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[AdditionalContactInfo]"
+                      dataType="nText"
+                      lineageId="Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[AdditionalContactInfo]"
+                      name="AdditionalContactInfo" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[Demographics]"
+                      dataType="nText"
+                      lineageId="Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[Demographics]"
+                      name="Demographics" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[rowguid]"
+                      dataType="guid"
+                      lineageId="Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[rowguid]"
+                      name="rowguid" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[ModifiedDate]"
+                      name="ModifiedDate" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[ErrorCode]"
+                      name="ErrorCode" />
+                    <outputColumn
+                      refId="Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]"
+                      name="ErrorColumn" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
           <paths>
+            <path
+              refId="Package\DataFlow Task - load to row file.Paths[Derived Column Output]"
+              endId="Package\DataFlow Task - load to row file\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Derived Column Output"
+              startId="Package\DataFlow Task - load to row file\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DataFlow Task - load to row file.Paths[Derived Column Output1]"
+              endId="Package\DataFlow Task - load to row file\Insert Destination.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DataFlow Task - load to row file\Derived Column 1.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DataFlow Task - load to row file.Paths[Historical Attribute Inserts Output]"
+              endId="Package\DataFlow Task - load to row file\Derived Column.Inputs[Derived Column Input]"
+              name="Historical Attribute Inserts Output"
+              startId="Package\DataFlow Task - load to row file\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]" />
+            <path
+              refId="Package\DataFlow Task - load to row file.Paths[New Output]"
+              endId="Package\DataFlow Task - load to row file\Union All.Inputs[Union All Input 1]"
+              name="New Output"
+              startId="Package\DataFlow Task - load to row file\Slowly Changing Dimension.Outputs[New Output]" />
+            <path
+              refId="Package\DataFlow Task - load to row file.Paths[OLE DB Command Output]"
+              endId="Package\DataFlow Task - load to row file\Union All.Inputs[Union All Input 2]"
+              name="OLE DB Command Output"
+              startId="Package\DataFlow Task - load to row file\OLE DB Command.Outputs[OLE DB Command Output]" />
+            <path
+              refId="Package\DataFlow Task - load to row file.Paths[Union All Output 1]"
+              endId="Package\DataFlow Task - load to row file\Derived Column 1.Inputs[Derived Column Input]"
+              name="Union All Output 1"
+              startId="Package\DataFlow Task - load to row file\Union All.Outputs[Union All Output 1]" />
+            <path
+              refId="Package\DataFlow Task - load to row file.Paths[Вывод ошибок источника &quot;OLE DB&quot;]"
+              endId="Package\DataFlow Task - load to row file\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+              name="Вывод ошибок источника &quot;OLE DB&quot;"
+              startId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012.Outputs[Вывод ошибок источника &quot;OLE DB&quot;]" />
             <path
               refId="Package\DataFlow Task - load to row file.Paths[Выход источника &quot;OLE DB&quot;]"
               endId="Package\DataFlow Task - load to row file\DataDestination RowFile.Inputs[Вход назначения &quot;Необработанный файл&quot;]"
@@ -523,7 +1687,7 @@
           <components>
             <component
               refId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person"
-              componentClassID="DTSAdapter.OLEDBDestination.3"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
               contactInfo="Назначение &quot;OLE DB&quot;;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;4"
               description="Назначение &quot;OLE DB&quot;"
               name="DataDestinaton stg Person"
@@ -718,7 +1882,7 @@
             </component>
             <component
               refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012"
-              componentClassID="DTSAdapter.OLEDBSource.3"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
               contactInfo="Источник &quot;OLE DB&quot;;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;7"
               description="Источник &quot;OLE DB&quot;"
               name="DataSource AdventureWorks2012"
@@ -1058,7 +2222,7 @@
             </component>
             <component
               refId="Package\DataFlow Task - load to temp table\Lookup"
-              componentClassID="DTSTransform.Lookup.3"
+              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
               description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
               name="Lookup"
@@ -1218,7 +2382,7 @@ where [refTable].[DatabaseUser] = ?</property>
             </component>
             <component
               refId="Package\DataFlow Task - load to temp table\Условное разбиение"
-              componentClassID="DTSTransform.ConditionalSplit.3"
+              componentClassID="{7F88F654-4E20-4D14-84F4-AF9C925D3087}"
               contactInfo="Условное разбиение;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;0"
               description="Распределяет строки данных по разным выходам в зависимости от содержимого данных. Используйте условие (выражения SSIS), чтобы указать распределяемые строки. Пример: разделение записей, которые необходимо очистить, от подготовленных к загрузке или распределение только подмножества записей."
               name="Условное разбиение"
@@ -1312,7 +2476,7 @@ where [refTable].[DatabaseUser] = ?</property>
       DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ScriptTask.ScriptTask, Microsoft.SqlServer.ScriptTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:LocaleID="-1"
       DTS:ObjectName="Script Task"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <ScriptProject
@@ -1326,6 +2490,7 @@ where [refTable].[DatabaseUser] = ?</property>
       DTS:refId="Package\Задача &quot;Выполнение пакета&quot;"
       DTS:CreationName="SSIS.ExecutePackageTask.3"
       DTS:Description="Задача &quot;Выполнение пакета&quot;"
+      DTS:Disabled="True"
       DTS:DTSID="{33E4D2D3-0266-40A7-B978-7EFEBA384143}"
       DTS:ExecutableType="SSIS.ExecutePackageTask.3"
       DTS:LocaleID="-1"
@@ -1361,12 +2526,12 @@ where [refTable].[DatabaseUser] = ?</property>
       DTS:To="Package\DataFlow Task - load to temp table" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--В данном разделе CDATA содержатся сведения о макете пакета. В данном разделе содержатся сведения о координатах (x,y), ширине и высоте.-->
-<!--В случае возникновения ошибки при редактировании этого раздела вручную его можно удалить. -->
-<!--Пакет можно загрузить обычным образом, но прежние сведения о макете будут утеряны, и конструктор автоматически перераспределит элементы в области конструктора.-->
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
 <Objects
   Version="sql11">
-  <!--Все приведенные ниже узлы будут содержать свойства, не влияющие на поведение среды выполнения.-->
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
@@ -1395,6 +2560,10 @@ where [refTable].[DatabaseUser] = ?</property>
           Size="131,42"
           Id="Package\Script Task"
           TopLeft="117,247" />
+        <NodeLayout
+          Size="230,42"
+          Id="Package\Задача &quot;Выполнение пакета&quot;"
+          TopLeft="368,324" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="179.052679720962,190.079789240386">
@@ -1439,10 +2608,6 @@ where [refTable].[DatabaseUser] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="230,42"
-          Id="Package\Задача &quot;Выполнение пакета&quot;"
-          TopLeft="368,324" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1450,37 +2615,279 @@ where [refTable].[DatabaseUser] = ?</property>
     design-time-name="Package\DataFlow Task - load to row file">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="246,42"
           Id="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012"
-          TopLeft="319.5,144.5" />
+          TopLeft="261.004744742357,5.5" />
         <NodeLayout
           Size="200,42"
           Id="Package\DataFlow Task - load to row file\DataDestination RowFile"
-          TopLeft="347,325" />
+          TopLeft="19.0047447423567,107.5" />
         <EdgeLayout
           Id="Package\DataFlow Task - load to row file.Paths[Выход источника &quot;OLE DB&quot;]"
-          TopLeft="444.75,186.5">
+          TopLeft="344.33807807569,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,138.5"
+              EndConnector="-225.333333333333,60"
               Start="0,0"
-              End="0,131">
+              End="-225.333333333333,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,131" />
+                    End="0,20.232633279483" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.232633279483"
+                    Point2="0,24.232633279483"
+                    Point3="-4,24.232633279483" />
+                  <mssgle:LineSegment
+                    End="-221.333333333333,24.232633279483" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-221.333333333333,24.232633279483"
+                    Point2="-225.333333333333,24.232633279483"
+                    Point3="-225.333333333333,28.232633279483" />
+                  <mssgle:LineSegment
+                    End="-225.333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="209,42"
+          Id="Package\DataFlow Task - load to row file\Slowly Changing Dimension"
+          TopLeft="411.241199194037,191.665186768114" />
+        <EdgeLayout
+          Id="Package\DataFlow Task - load to row file.Paths[Вывод ошибок источника &quot;OLE DB&quot;]"
+          TopLeft="423.671411409023,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="92.0697877850135,144.165186768114"
+              Start="0,0"
+              End="92.0697877850135,136.665186768114">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.2250350436649" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,54.2250350436649"
+                    Point2="0,58.2250350436649"
+                    Point3="4,58.2250350436649" />
+                  <mssgle:LineSegment
+                    End="88.0697877850135,58.2250350436649" />
+                  <mssgle:CubicBezierSegment
+                    Point1="88.0697877850135,58.2250350436649"
+                    Point2="92.0697877850135,58.2250350436649"
+                    Point3="92.0697877850135,62.2250350436649" />
+                  <mssgle:LineSegment
+                    End="92.0697877850135,136.665186768114" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="-35.3049693887432,63.2250350436649,162.6797265625,10.9501953125"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="154,42"
+          Id="Package\DataFlow Task - load to row file\Derived Column"
+          TopLeft="169.004744742357,209.5" />
+        <EdgeLayout
+          Id="Package\DataFlow Task - load to row file.Paths[Historical Attribute Inserts Output]"
+          TopLeft="411.241199194037,212.665186768114">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-88.2364544516802,17.8348132318856"
+              Start="0,0"
+              End="-80.7364544516802,17.8348132318856">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-40.1182272258401,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-40.1182272258401,0"
+                    Point2="-44.1182272258401,0"
+                    Point3="-44.1182272258401,4" />
+                  <mssgle:LineSegment
+                    End="-44.1182272258401,13.8348132318856" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-44.1182272258401,13.8348132318856"
+                    Point2="-44.1182272258401,17.8348132318856"
+                    Point3="-48.1182272258401,17.8348132318856" />
+                  <mssgle:LineSegment
+                    End="-80.7364544516802,17.8348132318856" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-119.17461394459,-17.609375,150.1127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="166,42"
+          Id="Package\DataFlow Task - load to row file\OLE DB Command"
+          TopLeft="157.004744742357,311.5" />
+        <EdgeLayout
+          Id="Package\DataFlow Task - load to row file.Paths[Derived Column Output]"
+          TopLeft="243.004744742357,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="121,42"
+          Id="Package\DataFlow Task - load to row file\Union All"
+          TopLeft="323.504744742357,413.5" />
+        <EdgeLayout
+          Id="Package\DataFlow Task - load to row file.Paths[New Output]"
+          TopLeft="515.741199194037,233.665186768114">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-112.903121118347,179.834813231886"
+              Start="0,0"
+              End="-112.903121118347,172.334813231886">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,102.492719744167" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,102.492719744167"
+                    Point2="0,106.492719744167"
+                    Point3="-4,106.492719744167" />
+                  <mssgle:LineSegment
+                    End="-108.903121118347,106.492719744167" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-108.903121118347,106.492719744167"
+                    Point2="-112.903121118347,106.492719744167"
+                    Point3="-112.903121118347,110.492719744167" />
+                  <mssgle:LineSegment
+                    End="-112.903121118347,172.334813231886" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-83.5429472779235,111.492719744167,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DataFlow Task - load to row file.Paths[OLE DB Command Output]"
+          TopLeft="240.004744742357,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="125.166666666667,60"
+              Start="0,0"
+              End="125.166666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5301794453507" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5301794453507"
+                    Point2="0,35.5301794453507"
+                    Point3="4,35.5301794453507" />
+                  <mssgle:LineSegment
+                    End="121.166666666667,35.5301794453507" />
+                  <mssgle:CubicBezierSegment
+                    Point1="121.166666666667,35.5301794453507"
+                    Point2="125.166666666667,35.5301794453507"
+                    Point3="125.166666666667,39.5301794453507" />
+                  <mssgle:LineSegment
+                    End="125.166666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\DataFlow Task - load to row file\Derived Column 1"
+          TopLeft="302.504744742357,515.5" />
+        <EdgeLayout
+          Id="Package\DataFlow Task - load to row file.Paths[Union All Output 1]"
+          TopLeft="384.004744742357,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\DataFlow Task - load to row file\Insert Destination"
+          TopLeft="302.504744742357,617.5" />
+        <EdgeLayout
+          Id="Package\DataFlow Task - load to row file.Paths[Derived Column Output1]"
+          TopLeft="384.004744742357,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -1664,6 +3071,58 @@ where [refTable].[DatabaseUser] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DataFlow Task - load to row file\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionID&gt;{78AD748C-4CF7-4DF5-BA37-7B39C17D966D}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[Employee]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;DataSource AdventureWorks2012.Outputs[Вывод ошибок источника "OLE DB"].Columns[BusinessEntityID]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;EmployeeId&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;DataSource AdventureWorks2012.Outputs[Вывод ошибок источника "OLE DB"].Columns[FirstName]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;FirstName&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;DataSource AdventureWorks2012.Outputs[Вывод ошибок источника "OLE DB"].Columns[LastName]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;LastName&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Union All&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 1&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;true&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn&gt;Phone&lt;/CurrentIndicatorColumn&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent&gt;True&lt;/ValueCurrent&gt;
+  &lt;ValueExpired&gt;False&lt;/ValueExpired&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
