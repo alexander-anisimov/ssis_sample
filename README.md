@@ -10,3 +10,4 @@ It's only a study project..
 - DatabaseBackup Task
 - Creating Deployment Wizard and Deploy packages to SSISDB
 - FTP task
+- Slow Change Dimension task
