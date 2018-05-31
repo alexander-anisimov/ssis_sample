@@ -7,7 +7,7 @@
   DTS:CreatorName="ALLNIGHTLONG\asd24"
   DTS:DTSID="{6A194621-3FBA-4EED-8D74-DF9BBDFFF41B}"
   DTS:ExecutableType="SSIS.Package.3"
-  DTS:LastModifiedProductVersion="11.0.3369.0"
+  DTS:LastModifiedProductVersion="14.0.3008.28"
   DTS:LocaleID="1033"
   DTS:ObjectName="Sample 13"
   DTS:PackageType="5"
@@ -69,7 +69,7 @@
       DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:LocaleID="-1"
       DTS:ObjectName="Clean temp table"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -94,7 +94,7 @@
           <components>
             <component
               refId="Package\DataFlow Task - load to row file\DataDestination RowFile"
-              componentClassID="{04762BB6-892F-4EE6-AD46-9CEB0A7EC7A2}"
+              componentClassID="DTSAdapter.RawDestination.3"
               contactInfo="Записывает необработанные данные, не требующие синтаксического анализа или преобразования. Пример: более быстрый запуск пакетов путем чтения из локального необработанного файла вместо медленного источника или распределения данных вручную для параллельной обработки на нескольких компьютерах.;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;2"
               description="Записывает необработанные данные, не требующие синтаксического анализа или преобразования. Пример: более быстрый запуск пакетов путем чтения из локального необработанного файла вместо медленного источника или распределения данных вручную для параллельной обработки на нескольких компьютерах."
               name="DataDestination RowFile"
@@ -157,7 +157,7 @@
             </component>
             <component
               refId="Package\DataFlow Task - load to row file\DataSource AdventureWorks2012"
-              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              componentClassID="DTSAdapter.OLEDBSource.3"
               contactInfo="Источник &quot;OLE DB&quot;;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;7"
               description="Источник &quot;OLE DB&quot;"
               name="DataSource AdventureWorks2012"
@@ -497,7 +497,7 @@
             </component>
             <component
               refId="Package\DataFlow Task - load to row file\Derived Column"
-              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              componentClassID="DTSTransform.DerivedColumn.3"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
               name="Derived Column"
@@ -573,7 +573,7 @@
             </component>
             <component
               refId="Package\DataFlow Task - load to row file\Derived Column 1"
-              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              componentClassID="DTSTransform.DerivedColumn.3"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
               name="Derived Column 1"
@@ -649,7 +649,7 @@
             </component>
             <component
               refId="Package\DataFlow Task - load to row file\Insert Destination"
-              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              componentClassID="DTSAdapter.OLEDBDestination.3"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
               name="Insert Destination"
@@ -808,7 +808,7 @@
             </component>
             <component
               refId="Package\DataFlow Task - load to row file\OLE DB Command"
-              componentClassID="{93FFEC66-CBC8-4C7F-9C6A-CB1C17A7567D}"
+              componentClassID="DTSTransform.OLEDBCommand.3"
               contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
               description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
               name="OLE DB Command"
@@ -924,7 +924,7 @@
             </component>
             <component
               refId="Package\DataFlow Task - load to row file\Slowly Changing Dimension"
-              componentClassID="{25BBB0C5-369B-4303-B3DF-D0DC741DEE58}"
+              componentClassID="DTSTransform.SCD.3"
               contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
               description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
               name="Slowly Changing Dimension"
@@ -1102,7 +1102,7 @@
             </component>
             <component
               refId="Package\DataFlow Task - load to row file\Union All"
-              componentClassID="{B594E9A8-4351-4939-891C-CFE1AB93E925}"
+              componentClassID="DTSTransform.UnionAll.3"
               contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
               name="Union All"
@@ -1687,7 +1687,7 @@
           <components>
             <component
               refId="Package\DataFlow Task - load to temp table\DataDestinaton stg Person"
-              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              componentClassID="DTSAdapter.OLEDBDestination.3"
               contactInfo="Назначение &quot;OLE DB&quot;;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;4"
               description="Назначение &quot;OLE DB&quot;"
               name="DataDestinaton stg Person"
@@ -1882,7 +1882,7 @@
             </component>
             <component
               refId="Package\DataFlow Task - load to temp table\DataSource AdventureWorks2012"
-              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              componentClassID="DTSAdapter.OLEDBSource.3"
               contactInfo="Источник &quot;OLE DB&quot;;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;7"
               description="Источник &quot;OLE DB&quot;"
               name="DataSource AdventureWorks2012"
@@ -2222,7 +2222,7 @@
             </component>
             <component
               refId="Package\DataFlow Task - load to temp table\Lookup"
-              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
+              componentClassID="DTSTransform.Lookup.3"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
               description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
               name="Lookup"
@@ -2382,7 +2382,7 @@ where [refTable].[DatabaseUser] = ?</property>
             </component>
             <component
               refId="Package\DataFlow Task - load to temp table\Условное разбиение"
-              componentClassID="{7F88F654-4E20-4D14-84F4-AF9C925D3087}"
+              componentClassID="DTSTransform.ConditionalSplit.3"
               contactInfo="Условное разбиение;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;0"
               description="Распределяет строки данных по разным выходам в зависимости от содержимого данных. Используйте условие (выражения SSIS), чтобы указать распределяемые строки. Пример: разделение записей, которые необходимо очистить, от подготовленных к загрузке или распределение только подмножества записей."
               name="Условное разбиение"
@@ -2476,7 +2476,7 @@ where [refTable].[DatabaseUser] = ?</property>
       DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ScriptTask.ScriptTask, Microsoft.SqlServer.ScriptTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:LocaleID="-1"
       DTS:ObjectName="Script Task"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <ScriptProject
